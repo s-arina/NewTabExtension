@@ -1,28 +1,47 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import engawa from '../bgs/engawa.gif';
+import pond from '../bgs/pond.gif';
+import streetcorner from '../bgs/streetcorner.gif';
+import trainstop from '../bgs/trainstop.gif';
 import '../css/App.css';
 
 import DateTime from './DateTime';
 
 export default function App() {
-  const [currBg, setCurrBg] = useState('engawa');
+  const random = ['engawa', 'pond', 'streetcorner', 'trainstop'];
+  const randomBg = Math.floor(Math.random() * random.length);
+
+  const [currBg, setCurrBg] = useState(random[randomBg]);
+
+  // console.log(currBg);
 
   const changeBg = (name) => {
     setCurrBg(name);
   };
 
   const bgArray = [
-    { id: 1, name: 'engawa' },
-    { id: 2, name: 'pond' },
-    { id: 3, name: 'streetcorner' },
-    { id: 4, name: 'trainstop' },
+    { id: 1, name: 'engawa', img: engawa },
+    { id: 2, name: 'pond', img: pond },
+    { id: 3, name: 'streetcorner', img: streetcorner },
+    { id: 4, name: 'trainstop', img: trainstop },
   ];
-  console.log(currBg);
+
   return (
     <div className='app'>
       <div
         id='bg'
         style={{
-          backgroundImage: `url('/bgs/${currBg}.gif')`,
+          backgroundImage: `url(${
+            currBg === 'engawa'
+              ? engawa
+              : currBg === 'pond'
+              ? pond
+              : currBg === 'streetcorner'
+              ? streetcorner
+              : currBg === 'trainstop'
+              ? trainstop
+              : ''
+          })`,
         }}
       ></div>
       <div id='container'>
