@@ -8,38 +8,6 @@
   z-index: -1;
 }
 
-#container {
-  display: flex;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-  position: fixed;
-
-  .date-time {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    letter-spacing: 0.5rem;
-
-    .date,
-    .day {
-      font-family: Montserrat-R, sans-serif;
-      font-size: var(--h2);
-      color: var(--offwhite);
-      opacity: 0.7;
-    }
-    .day {
-      text-align: right;
-    }
-    .time {
-      font-family: Montserrat-B, sans-serif;
-      font-size: var(--h1);
-      color: var(--offwhite);
-      text-shadow: 0 0 1rem rgba(255, 255, 255, 0.8);
-    }
-  }
-}
-
 footer {
   display: flex;
   justify-content: center;
@@ -49,19 +17,35 @@ footer {
   height: 6rem;
   gap: 2rem;
   & > span {
+    display: flex;
+    justify-content: center;
     background-color: var(--offwhite);
     opacity: 0.3;
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50%;
-    cursor: pointer;
+    position: relative;
     transition: opacity 0.3s, visibility 0.3s;
+    cursor: pointer;
+    &::before {
+      content: attr(data-hover);
+      visibility: hidden;
+      opacity: 0;
+      color: var(--offwhite);
+      font-size: 1.2rem;
+      position: absolute;
+      bottom: 200%;
+    }
     &:hover {
       opacity: 0.8;
+      &:before {
+        opacity: 1;
+        visibility: visible;
+      }
     }
   }
-}
-
-.active {
-  background-color: red;
+  .active {
+    background-color: var(--offwhite);
+    opacity: 1;
+  }
 }

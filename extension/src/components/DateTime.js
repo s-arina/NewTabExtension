@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import '../css/DateTime.css';
 
-export default function DateTime() {
+export default function DateTime({ theme }) {
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
 
@@ -28,9 +29,9 @@ export default function DateTime() {
 
   return (
     <div className='date-time'>
-      <h2 className='date'>{date}</h2>
-      <h1 className='time'>{time}</h1>
-      <h2 className='day'>{getWeekday(date)}</h2>
+      <h2 className={`date ${theme}`}>{date}</h2>
+      <h1 className={`time ${theme}`}>{time}</h1>
+      <h2 className={`day ${theme}`}>{getWeekday(date)}</h2>
     </div>
   );
 }

@@ -1,0 +1,59 @@
+#container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+
+#container .date-time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  letter-spacing: 0.5rem;
+}
+
+#container .date-time .day {
+  text-align: right;
+}
+
+#container .date-time .date.light,
+#container .date-time .day.light {
+  font-family: Montserrat-R, sans-serif;
+  font-size: var(--h2);
+  color: var(--offwhite);
+  opacity: 0.7;
+}
+
+#container .date-time .time.light {
+  font-family: Montserrat-B, sans-serif;
+  font-size: var(--h1);
+  color: var(--offwhite);
+  text-shadow: 0 0 1rem rgba(255, 255, 255, 0.8);
+}
+
+#container .date-time .date.dark,
+#container .date-time .day.dark {
+  font-family: Montserrat-R, sans-serif;
+  font-size: var(--h2);
+  color: var(--black);
+  opacity: 0.7;
+}
+
+#container .date-time .time.dark {
+  font-family: Montserrat-B, sans-serif;
+  font-size: var(--h1);
+  color: var(--black);
+}
+/*# sourceMappingURL=DateTime.css.map */
