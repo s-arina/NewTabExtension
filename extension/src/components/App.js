@@ -1,45 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import '../css/App.css';
 
-function App() {
-  const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
+import DateTime from './DateTime';
 
-  useEffect(() => {
-    getDateTime();
-    setInterval(() => getDateTime, 1000);
-  }, []);
+export default function App() {
+  const [currBg, setCurrBg] = useState('engawa');
 
-  const getDateTime = () => {
-    const currDate = new Date().toLocaleDateString();
-    const currTime = new Date().toLocaleTimeString('en-US', {
-      hour: 'numeric',
-      minute: 'numeric',
-      hour12: true,
-    });
-
-    setDate(currDate);
-    setTime(currTime);
+  const changeBg = (name) => {
+    setCurrBg(name);
   };
 
+  const bgArray = [
+    { id: 1, name: 'engawa' },
+    { id: 2, name: 'pond' },
+    { id: 3, name: 'streetcorner' },
+    { id: 4, name: 'trainstop' },
+  ];
+  console.log(currBg);
   return (
     <div className='app'>
-      <div id='bg'></div>
+      <div
+        id='bg'
+        style={{
+          backgroundImage: `url('/bgs/${currBg}.gif')`,
+        }}
+      ></div>
       <div id='container'>
-        <div id='date-time'>
-          <h2 id='date'>{date}</h2>
-          <h1 id='time'>{time}</h1>
-        </div>
+        <DateTime />
       </div>
       <footer>
-        <span className='bg1'></span>
-        <span className='bg2'></span>
-        <span className='bg3'></span>
-        <span className='bg4'></span>
+        {bgArray?.map((bg) => (
+          <span
+            key={bg.id}
+            className={bg.name}
+            onClick={() => changeBg(bg.name)}
+          ></span>
+        ))}
       </footer>
-      <script src='test.js'></script>
     </div>
   );
 }
-
-export default App;

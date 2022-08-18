@@ -1,8 +1,4 @@
 #bg {
-  background-image: url("../../public/bgs/trainstop.gif");
-  background-image: url("../../public/bgs/streetcorner.gif");
-  background-image: url("../../public/bgs/pond.gif");
-  background-image: url("../../public/bgs/engawa.gif");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -24,7 +20,7 @@
   position: fixed;
 }
 
-#container #date-time {
+#container .date-time {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -38,17 +34,23 @@
   letter-spacing: 0.5rem;
 }
 
-#container #date-time h1 {
+#container .date-time .date,
+#container .date-time .day {
+  font-family: Montserrat-R, sans-serif;
+  font-size: var(--h2);
+  color: var(--offwhite);
+  opacity: 0.7;
+}
+
+#container .date-time .day {
+  text-align: right;
+}
+
+#container .date-time .time {
   font-family: Montserrat-B, sans-serif;
   font-size: var(--h1);
   color: var(--offwhite);
   text-shadow: 0 0 1rem rgba(255, 255, 255, 0.8);
-}
-
-#container #date-time h2 {
-  font-family: Montserrat-R, sans-serif;
-  font-size: var(--h2);
-  color: var(--offwhite);
 }
 
 footer {
