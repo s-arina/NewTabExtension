@@ -1,0 +1,31 @@
+@font-face {
+  font-family: Montserrat-R;
+  src: url('../../public/fonts/Montserrat-Regular.ttf');
+}
+@font-face {
+  font-family: Montserrat-B;
+  src: url('../../public/fonts/Montserrat-Bold.ttf');
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  font-family: Montserrat-R, sans-serif;
+  background-color: var(--black);
+  position: relative;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

@@ -1,0 +1,34 @@
+{
+    "short_name": "New Tab",
+    "name": "New Tab Extension",
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "permissions": [
+      "storage",
+      "tabs",
+      "activeTab",
+      "http://*/*", 
+      "https://*/*"
+    ],
+    "browser_action": {
+      "default_popup": "extension/build/index.html",
+      "default_icon": {
+        "16": "/images/favicon.png",
+        "32": "/images/favicon.png",
+        "48": "/images/favicon.png",
+        "128": "/images/favicon.png" 
+      }
+    },
+    "icons": {
+      "16": "/images/favicon.png",
+      "32": "/images/favicon.png",
+      "48": "/images/favicon.png",
+      "128": "/images/favicon.png"
+    },
+    "background": {
+        "service_worker": "background.html"
+    },
+    "chrome_url_overrides": {
+        "newtab": "extension/build/index.html"
+    }
+}
