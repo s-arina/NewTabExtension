@@ -16,4 +16,3 @@ A new tab extension for Chrome using React.
 - `npm run move` inside extension
 - open chrome://extensions
 - developer mode on, load unpacked
-- \*\*remember to cd out to newTab for repo actions

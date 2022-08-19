@@ -2,15 +2,22 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 100%;
   width: 100%;
   position: fixed;
 }
 
-#container .date-time {
+#container .date-time.light {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -24,36 +31,58 @@
   letter-spacing: 0.5rem;
 }
 
-#container .date-time .day {
+#container .date-time.light .day {
   text-align: right;
 }
 
-#container .date-time .date.light,
-#container .date-time .day.light {
+#container .date-time.light .date,
+#container .date-time.light .day {
   font-family: Montserrat-R, sans-serif;
   font-size: var(--h2);
   color: var(--offwhite);
   opacity: 0.7;
 }
 
-#container .date-time .time.light {
+#container .date-time.light .time {
   font-family: Montserrat-B, sans-serif;
   font-size: var(--h1);
   color: var(--offwhite);
   text-shadow: 0 0 1rem rgba(255, 255, 255, 0.8);
 }
 
-#container .date-time .date.dark,
-#container .date-time .day.dark {
+#container .date-time.dark {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  letter-spacing: 0.5rem;
+}
+
+#container .date-time.dark .day {
+  text-align: right;
+}
+
+#container .date-time.dark .date,
+#container .date-time.dark .day {
   font-family: Montserrat-R, sans-serif;
   font-size: var(--h2);
   color: var(--black);
   opacity: 0.7;
 }
 
-#container .date-time .time.dark {
+#container .date-time.dark .time {
   font-family: Montserrat-B, sans-serif;
   font-size: var(--h1);
   color: var(--black);
+}
+
+#container .weather {
+  color: white;
 }
 /*# sourceMappingURL=DateTime.css.map */

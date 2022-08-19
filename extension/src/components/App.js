@@ -1,28 +1,29 @@
 import React, { useState } from 'react';
 import engawa from '../bgs/engawa.gif';
 import pond from '../bgs/pond.gif';
-import streetcorner from '../bgs/streetcorner.gif';
-import trainstop from '../bgs/trainstop.gif';
+import street from '../bgs/street.gif';
+import train from '../bgs/train.gif';
 import '../css/App.css';
 
 import DateTime from './DateTime';
+import Weather from './Weather';
 
 export default function App() {
   const bgArray = [
     { id: 1, name: 'engawa', img: engawa, theme: 'light' },
     { id: 2, name: 'pond', img: pond, theme: 'dark' },
-    { id: 3, name: 'streetcorner', img: streetcorner, theme: 'light' },
-    { id: 4, name: 'trainstop', img: trainstop, theme: 'dark' },
+    { id: 3, name: 'street', img: street, theme: 'light' },
+    { id: 4, name: 'train', img: train, theme: 'dark' },
   ];
 
   // set random bg on load as initial state
-  const random = ['engawa', 'pond', 'streetcorner', 'trainstop'];
+  const random = ['engawa', 'pond', 'street', 'train'];
   const randomBg = Math.floor(Math.random() * random.length);
   const [currBg, setCurrBg] = useState(random[randomBg]);
 
   // set light/dark theme for text
   const [theme, setTheme] = useState(
-    currBg === 'engawa' || currBg === 'streetcorner' ? 'light' : 'dark'
+    currBg === 'engawa' || currBg === 'street' ? 'light' : 'dark'
   );
 
   const changeBg = (name) => {
@@ -42,16 +43,17 @@ export default function App() {
               ? engawa
               : currBg === 'pond'
               ? pond
-              : currBg === 'streetcorner'
-              ? streetcorner
-              : currBg === 'trainstop'
-              ? trainstop
+              : currBg === 'street'
+              ? street
+              : currBg === 'train'
+              ? train
               : ''
           })`,
         }}
       ></div>
       <div id='container'>
         <DateTime currBg={currBg} theme={theme} />
+        <Weather />
       </div>
       <footer>
         {bgArray?.map((bg) => (

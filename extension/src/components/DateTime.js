@@ -28,10 +28,10 @@ export default function DateTime({ theme }) {
   };
 
   return (
-    <div className='date-time'>
-      <h2 className={`date ${theme}`}>{date}</h2>
-      <h1 className={`time ${theme}`}>{time}</h1>
-      <h2 className={`day ${theme}`}>{getWeekday(date)}</h2>
+    <div className={`date-time ${theme}`}>
+      <h2 className='date'>{date}</h2>
+      <h1 className='time'>{time}</h1>
+      <h2 className='day'>{getWeekday(date)}</h2>
     </div>
   );
 }
