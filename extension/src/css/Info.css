@@ -28,7 +28,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 5rem;
+  gap: 3rem;
 }
 
 #container-light .info {
