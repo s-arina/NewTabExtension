@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import '../css/Notepad.css';
+
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 export default function Notes({ theme }) {
   const [open, setOpen] = useState(false);
 
-  const rotateChevron = open ? 'rotate(90deg)' : 'rotate(0)';
+  const chevronRotate = open ? 'rotate(90deg)' : 'rotate(0)';
   const chevronTheme = theme === 'light' ? '#f2f2f2' : '#000';
 
   return (
@@ -15,20 +16,20 @@ export default function Notes({ theme }) {
         <div className='chevron'>
           <KeyboardArrowRightIcon
             style={{
-              transform: rotateChevron,
+              transform: chevronRotate,
               fill: chevronTheme,
               transition: 'all 0.2s linear',
             }}
           />
         </div>
       </div>
-
       {open && (
-        <textarea
-          className='note-area'
-          // placeholder='           ＊*•̩̩͙✩•̩̩͙*˚ Write a note! ˚*•̩̩͙✩•̩̩͙*˚＊'
-          placeholder='         *⁺‧͙˚*･༓ ☾　Write a note... ☽ ༓･*˚‧͙⁺*'
-        ></textarea>
+        <div className='note-area-container'>
+          <textarea
+            className='note-area'
+            placeholder='         *⁺‧͙˚*･༓ ☾　Write a note... ☽ ༓･*˚‧͙⁺*'
+          ></textarea>
+        </div>
       )}
     </div>
   );

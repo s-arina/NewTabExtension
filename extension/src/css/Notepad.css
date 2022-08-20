@@ -45,40 +45,57 @@
           align-items: center;
 }
 
-#container-light .note-area {
+#container-light .note-area-container {
+  width: 100%;
   background-color: rgba(255, 255, 255, 0.5);
-  color: var(--black);
-  height: 10rem;
+  border-radius: 1rem;
   padding: 1.5rem;
+}
+
+#container-light .note-area-container .note-area {
+  background-color: transparent;
+  color: var(--black);
+  width: 100%;
+  height: 10rem;
   resize: none;
   outline: none;
   overflow: auto;
   border: none;
-  border-radius: 1rem;
 }
 
-#container-light .note-area::-webkit-input-placeholder {
+#container-light .note-area-container .note-area::-webkit-input-placeholder {
   color: var(--black);
   opacity: 0.6;
-  line-height: 7rem;
+  line-height: 10rem;
 }
 
-#container-light .note-area:-ms-input-placeholder {
+#container-light .note-area-container .note-area:-ms-input-placeholder {
   color: var(--black);
   opacity: 0.6;
-  line-height: 7rem;
+  line-height: 10rem;
 }
 
-#container-light .note-area::-ms-input-placeholder {
+#container-light .note-area-container .note-area::-ms-input-placeholder {
   color: var(--black);
   opacity: 0.6;
-  line-height: 7rem;
+  line-height: 10rem;
 }
 
-#container-light .note-area::placeholder {
+#container-light .note-area-container .note-area::placeholder {
   color: var(--black);
   opacity: 0.6;
-  line-height: 7rem;
+  line-height: 10rem;
+}
+
+#container-light ::-webkit-scrollbar {
+  width: 1rem;
+}
+
+#container-light ::-webkit-scrollbar-thumb {
+  background-clip: padding-box;
+  border-radius: 2rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 0.3rem solid transparent;
 }
 
 #container-dark .notes {
@@ -112,53 +129,58 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-top: 0.2rem;
 }
 
-#container-dark .note-area {
+#container-dark .note-area-container {
+  width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  color: var(--offwhite);
-  height: 10rem;
+  border-radius: 1rem;
   padding: 1.5rem;
+}
+
+#container-dark .note-area-container .note-area {
+  background-color: transparent;
+  color: var(--offwhite);
+  width: 100%;
+  height: 10rem;
   resize: none;
   outline: none;
   overflow: auto;
   border: none;
-  border-radius: 1rem;
 }
 
-#container-dark .note-area::-webkit-input-placeholder {
+#container-dark .note-area-container .note-area::-webkit-input-placeholder {
   color: var(--offwhite);
   opacity: 0.6;
-  line-height: 7rem;
+  line-height: 10rem;
 }
 
-#container-dark .note-area:-ms-input-placeholder {
+#container-dark .note-area-container .note-area:-ms-input-placeholder {
   color: var(--offwhite);
   opacity: 0.6;
-  line-height: 7rem;
+  line-height: 10rem;
 }
 
-#container-dark .note-area::-ms-input-placeholder {
+#container-dark .note-area-container .note-area::-ms-input-placeholder {
   color: var(--offwhite);
   opacity: 0.6;
-  line-height: 7rem;
+  line-height: 10rem;
 }
 
-#container-dark .note-area::placeholder {
+#container-dark .note-area-container .note-area::placeholder {
   color: var(--offwhite);
   opacity: 0.6;
-  line-height: 7rem;
+  line-height: 10rem;
 }
 
-::-webkit-scrollbar {
+#container-dark ::-webkit-scrollbar {
   width: 1rem;
 }
 
-::-webkit-scrollbar-thumb {
+#container-dark ::-webkit-scrollbar-thumb {
   background-clip: padding-box;
   border-radius: 2rem;
-  background-color: var(--offwhite);
+  background-color: rgba(0, 0, 0, 0.5);
   border: 0.3rem solid transparent;
 }
 /*# sourceMappingURL=Notepad.css.map */
