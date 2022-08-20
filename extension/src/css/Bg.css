@@ -8,7 +8,8 @@
   z-index: -1;
 }
 
-#bg-select {
+#bg-select-light,
+#bg-select-dark {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -22,7 +23,7 @@
   gap: 2rem;
 }
 
-#bg-select > span {
+#bg-select-light > span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -40,7 +41,7 @@
   cursor: pointer;
 }
 
-#bg-select > span::before {
+#bg-select-light > span::before {
   content: attr(data-hover);
   visibility: hidden;
   opacity: 0;
@@ -50,17 +51,59 @@
   bottom: 200%;
 }
 
-#bg-select > span:hover {
+#bg-select-light > span:hover {
   opacity: 0.8;
 }
 
-#bg-select > span:hover:before {
+#bg-select-light > span:hover:before {
   opacity: 1;
   visibility: visible;
 }
 
-#bg-select .active {
+#bg-select-light .active {
   background-color: var(--offwhite);
+  opacity: 0.8;
+}
+
+#bg-select-dark > span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: var(--black);
+  opacity: 0.2;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  position: relative;
+  -webkit-transition: opacity 0.3s, visibility 0.3s;
+  transition: opacity 0.3s, visibility 0.3s;
+  cursor: pointer;
+}
+
+#bg-select-dark > span::before {
+  content: attr(data-hover);
+  visibility: hidden;
+  opacity: 0;
+  color: var(--black);
+  font-size: 1.2rem;
+  position: absolute;
+  bottom: 200%;
+}
+
+#bg-select-dark > span:hover {
+  opacity: 0.8;
+}
+
+#bg-select-dark > span:hover:before {
   opacity: 1;
+  visibility: visible;
+}
+
+#bg-select-dark .active {
+  background-color: var(--black);
+  opacity: 0.8;
 }
 /*# sourceMappingURL=Bg.css.map */

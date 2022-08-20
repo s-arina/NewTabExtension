@@ -26,7 +26,8 @@ export default function Notes({ theme }) {
       {open && (
         <textarea
           className='note-area'
-          placeholder='Write a note...'
+          // placeholder='           ＊*•̩̩͙✩•̩̩͙*˚ Write a note! ˚*•̩̩͙✩•̩̩͙*˚＊'
+          placeholder='         *⁺‧͙˚*･༓ ☾　Write a note... ☽ ༓･*˚‧͙⁺*'
         ></textarea>
       )}
     </div>

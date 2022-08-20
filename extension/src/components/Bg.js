@@ -58,6 +58,7 @@ export default function Bg() {
         currBg={currBg}
         changeBg={changeBg}
         setTheme={setTheme}
+        theme={theme}
       />
     </>
   );

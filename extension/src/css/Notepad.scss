@@ -36,8 +36,7 @@
   .note-area {
     background-color: rgba(255, 255, 255, 0.5);
     color: var(--black);
-    min-height: 5rem;
-    max-height: 30rem;
+    height: 10rem;
     padding: 1.5rem;
     resize: none;
     outline: none;
@@ -47,6 +46,7 @@
     &::placeholder {
       color: var(--black);
       opacity: 0.6;
+      line-height: 7rem;
     }
   }
 }
@@ -80,8 +80,7 @@
   .note-area {
     background-color: rgba(0, 0, 0, 0.5);
     color: var(--offwhite);
-    min-height: 5rem;
-    max-height: 30rem;
+    height: 10rem;
     padding: 1.5rem;
     resize: none;
     outline: none;
@@ -91,6 +90,18 @@
     &::placeholder {
       color: var(--offwhite);
       opacity: 0.6;
+      line-height: 7rem;
     }
   }
+}
+
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-clip: padding-box;
+  border-radius: 2rem;
+  background-color: var(--offwhite);
+  border: 0.3rem solid transparent;
 }

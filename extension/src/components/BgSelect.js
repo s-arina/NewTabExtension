@@ -1,8 +1,14 @@
 import React from 'react';
 
-export default function BgSelect({ bgArray, currBg, changeBg, setTheme }) {
+export default function BgSelect({
+  bgArray,
+  currBg,
+  changeBg,
+  setTheme,
+  theme,
+}) {
   return (
-    <div id='bg-select'>
+    <div id={`bg-select-${theme}`}>
       {bgArray?.map((bg) => (
         <span
           key={bg.id}
