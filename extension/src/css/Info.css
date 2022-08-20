@@ -1,4 +1,5 @@
-#container-light {
+#container-light,
+#container-dark {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -15,7 +16,19 @@
   height: 100%;
   width: 100%;
   position: fixed;
-  gap: 10rem;
+  gap: 4rem;
+}
+
+#container-light .info-container,
+#container-dark .info-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 5rem;
 }
 
 #container-light .info {
@@ -29,7 +42,6 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  letter-spacing: 0.5rem;
 }
 
 #container-light .info .date-temp {
@@ -42,6 +54,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  letter-spacing: 0.5rem;
 }
 
 #container-light .info .date-temp h2 {
@@ -61,26 +74,7 @@
   font-size: var(--h1);
   color: var(--offwhite);
   text-shadow: 0 0 1rem rgba(255, 255, 255, 0.8);
-}
-
-#container-dark {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  gap: 10rem;
+  letter-spacing: 0.5rem;
 }
 
 #container-dark .info {
@@ -94,7 +88,6 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  letter-spacing: 0.5rem;
 }
 
 #container-dark .info .date-temp {
@@ -107,6 +100,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  letter-spacing: 0.5rem;
 }
 
 #container-dark .info .date-temp h2 {
@@ -124,6 +118,7 @@
   font-family: Montserrat-B, sans-serif;
   font-size: var(--h1);
   color: var(--black);
+  letter-spacing: 0.5rem;
 }
 
 .loading {

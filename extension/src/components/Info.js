@@ -32,14 +32,16 @@ export default function Info({ theme }) {
 
   return (
     <div id={`container-${theme}`}>
-      <div className='info'>
-        <div className='date-temp'>
-          <h2>{date}</h2>
-          <h2>{getWeekday(date)}</h2>
-          <Weather />
+      <div className='info-container'>
+        <div className='info'>
+          <div className='date-temp'>
+            <h2>{date}</h2>
+            <h2>{getWeekday(date)}</h2>
+            <Weather />
+          </div>
+          <h1 className='time'>{time}</h1>
         </div>
-        <h1 className='time'>{time}</h1>
-        <Notes />
+        <Notes theme={theme} />
       </div>
     </div>
   );
