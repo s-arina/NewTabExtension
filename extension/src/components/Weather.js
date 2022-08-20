@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import loader from '../imgs/loader.gif';
 
-function Weather(props) {
+export default function Weather() {
   const apiKey = process.env.REACT_APP_WEATHER_API;
   const url = 'https://api.weatherapi.com/v1/';
 
-  const [lat, setLat] = useState([]);
-  const [long, setLong] = useState([]);
+  const [lat, setLat] = useState('');
+  const [long, setLong] = useState('');
   const [weatherData, setWeatherData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [unit, setUnit] = useState(true);
 
   useEffect(() => {
     // api call runs on refresh
@@ -35,12 +37,23 @@ function Weather(props) {
     }
   };
 
+  // toggle between fahrenheit/celcius
+  const toggleUnit = () => {
+    setUnit(!unit);
+  };
+
   return (
-    <div id='weather'>
-      {weatherData.current && <h3>{weatherData.current.feelslike_f}</h3>}
-      {weatherData.location && <h3>{weatherData.location.name}</h3>}
-    </div>
+    <>
+      {loading ? (
+        <img src={loader} alt='loading spinner' className='loading' />
+      ) : weatherData.current && weatherData.location ? (
+        <h2 onClick={() => toggleUnit()} className='temp'>
+          {unit
+            ? Math.round(weatherData.current.feelslike_f)
+            : Math.round(weatherData.current.feelslike_c)}
+          &deg;{unit ? 'F' : 'C'}
+        </h2>
+      ) : null}
+    </>
   );
 }
-
-export default Weather;

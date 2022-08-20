@@ -15,6 +15,7 @@
   height: 100%;
   width: 100%;
   position: fixed;
+  gap: 10rem;
 }
 
 #container .date-time.light {
@@ -31,16 +32,37 @@
   letter-spacing: 0.5rem;
 }
 
-#container .date-time.light .day {
-  text-align: right;
+#container .date-time.light .date-temp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-#container .date-time.light .date,
-#container .date-time.light .day {
+#container .date-time.light .date-temp .date,
+#container .date-time.light .date-temp .temp {
   font-family: Montserrat-R, sans-serif;
   font-size: var(--h2);
   color: var(--offwhite);
-  opacity: 0.7;
+  text-shadow: 0 0 1rem rgba(255, 255, 255, 0.8);
+}
+
+#container .date-time.light .date-temp .temp {
+  cursor: pointer;
+}
+
+#container .date-time.light .day {
+  text-align: right;
+  text-transform: uppercase;
+  font-family: Montserrat-R, sans-serif;
+  font-size: var(--h2);
+  color: var(--offwhite);
+  text-shadow: 0 0 1rem rgba(255, 255, 255, 0.8);
 }
 
 #container .date-time.light .time {
@@ -64,16 +86,37 @@
   letter-spacing: 0.5rem;
 }
 
-#container .date-time.dark .day {
-  text-align: right;
+#container .date-time.dark .date-temp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-#container .date-time.dark .date,
-#container .date-time.dark .day {
+#container .date-time.dark .date-temp .date,
+#container .date-time.dark .date-temp .temp {
   font-family: Montserrat-R, sans-serif;
   font-size: var(--h2);
   color: var(--black);
-  opacity: 0.7;
+  text-shadow: 0 0 1rem rgba(255, 255, 255, 0.8);
+}
+
+#container .date-time.dark .date-temp .temp {
+  cursor: pointer;
+}
+
+#container .date-time.dark .day {
+  text-align: right;
+  text-transform: uppercase;
+  font-family: Montserrat-R, sans-serif;
+  font-size: var(--h2);
+  color: var(--black);
+  text-shadow: 0 0 1rem rgba(255, 255, 255, 0.8);
 }
 
 #container .date-time.dark .time {
@@ -82,7 +125,7 @@
   color: var(--black);
 }
 
-#container .weather {
-  color: white;
+#container .loading {
+  width: 2.5rem;
 }
-/*# sourceMappingURL=DateTime.css.map */
+/*# sourceMappingURL=DateTimeWeather.css.map */

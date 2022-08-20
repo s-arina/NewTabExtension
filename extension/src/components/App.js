@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import engawa from '../bgs/engawa.gif';
-import pond from '../bgs/pond.gif';
-import street from '../bgs/street.gif';
-import train from '../bgs/train.gif';
+import engawa from '../imgs/engawa.gif';
+import pond from '../imgs/pond.gif';
+import street from '../imgs/street.gif';
+import train from '../imgs/train.gif';
 import '../css/App.css';
 
-import DateTime from './DateTime';
-import Weather from './Weather';
+import DateTimeWeather from './DateTimeWeather';
 
 export default function App() {
   const bgArray = [
@@ -52,8 +51,7 @@ export default function App() {
         }}
       ></div>
       <div id='container'>
-        <DateTime currBg={currBg} theme={theme} />
-        <Weather />
+        <DateTimeWeather currBg={currBg} theme={theme} />
       </div>
       <footer>
         {bgArray?.map((bg) => (

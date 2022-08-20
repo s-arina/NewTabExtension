@@ -6,6 +6,7 @@
   height: 100%;
   width: 100%;
   position: fixed;
+  gap: 10rem;
 
   // LIGHT VER
   .date-time.light {
@@ -14,17 +15,31 @@
     justify-content: center;
     letter-spacing: 0.5rem;
 
-    .day {
-      text-align: right;
+    .date-temp {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .date,
+      .temp {
+        font-family: Montserrat-R, sans-serif;
+        font-size: var(--h2);
+        color: var(--offwhite);
+        text-shadow: 0 0 1rem rgba(255, 255, 255, 0.8);
+      }
+      .temp {
+        cursor: pointer;
+      }
     }
 
-    .date,
     .day {
+      text-align: right;
+      text-transform: uppercase;
       font-family: Montserrat-R, sans-serif;
       font-size: var(--h2);
       color: var(--offwhite);
-      opacity: 0.7;
+      text-shadow: 0 0 1rem rgba(255, 255, 255, 0.8);
     }
+
     .time {
       font-family: Montserrat-B, sans-serif;
       font-size: var(--h1);
@@ -40,16 +55,31 @@
     justify-content: center;
     letter-spacing: 0.5rem;
 
+    .date-temp {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .date,
+      .temp {
+        font-family: Montserrat-R, sans-serif;
+        font-size: var(--h2);
+        color: var(--black);
+        text-shadow: 0 0 1rem rgba(255, 255, 255, 0.8);
+      }
+      .temp {
+        cursor: pointer;
+      }
+    }
+
     .day {
       text-align: right;
-    }
-    .date,
-    .day {
+      text-transform: uppercase;
       font-family: Montserrat-R, sans-serif;
       font-size: var(--h2);
       color: var(--black);
-      opacity: 0.7;
+      text-shadow: 0 0 1rem rgba(255, 255, 255, 0.8);
     }
+
     .time {
       font-family: Montserrat-B, sans-serif;
       font-size: var(--h1);
@@ -58,7 +88,7 @@
     }
   }
 
-  .weather {
-    color: white;
+  .loading {
+    width: 2.5rem;
   }
 }
