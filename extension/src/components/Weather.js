@@ -47,7 +47,7 @@ export default function Weather() {
       {loading ? (
         <img src={loader} alt='loading spinner' className='loading' />
       ) : weatherData.current && weatherData.location ? (
-        <h2 onClick={() => toggleUnit()} className='temp'>
+        <h2 onClick={() => toggleUnit()}>
           {unit
             ? Math.round(weatherData.current.feelslike_f)
             : Math.round(weatherData.current.feelslike_c)}

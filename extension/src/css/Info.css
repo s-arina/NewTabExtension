@@ -1,4 +1,4 @@
-#container {
+#container-light {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -18,7 +18,7 @@
   gap: 10rem;
 }
 
-#container .date-time.light {
+#container-light .info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -32,7 +32,7 @@
   letter-spacing: 0.5rem;
 }
 
-#container .date-time.light .date-temp {
+#container-light .info .date-temp {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -44,35 +44,46 @@
           align-items: center;
 }
 
-#container .date-time.light .date-temp .date,
-#container .date-time.light .date-temp .temp {
+#container-light .info .date-temp h2 {
   font-family: Montserrat-R, sans-serif;
   font-size: var(--h2);
   color: var(--offwhite);
   text-shadow: 0 0 1rem rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
 }
 
-#container .date-time.light .date-temp .temp {
+#container-light .info .date-temp .temp {
   cursor: pointer;
 }
 
-#container .date-time.light .day {
-  text-align: right;
-  text-transform: uppercase;
-  font-family: Montserrat-R, sans-serif;
-  font-size: var(--h2);
-  color: var(--offwhite);
-  text-shadow: 0 0 1rem rgba(255, 255, 255, 0.8);
-}
-
-#container .date-time.light .time {
+#container-light .info .time {
   font-family: Montserrat-B, sans-serif;
   font-size: var(--h1);
   color: var(--offwhite);
   text-shadow: 0 0 1rem rgba(255, 255, 255, 0.8);
 }
 
-#container .date-time.dark {
+#container-dark {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  gap: 10rem;
+}
+
+#container-dark .info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -86,7 +97,7 @@
   letter-spacing: 0.5rem;
 }
 
-#container .date-time.dark .date-temp {
+#container-dark .info .date-temp {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -98,34 +109,24 @@
           align-items: center;
 }
 
-#container .date-time.dark .date-temp .date,
-#container .date-time.dark .date-temp .temp {
+#container-dark .info .date-temp h2 {
   font-family: Montserrat-R, sans-serif;
   font-size: var(--h2);
   color: var(--black);
-  text-shadow: 0 0 1rem rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
 }
 
-#container .date-time.dark .date-temp .temp {
+#container-dark .info .date-temp .temp {
   cursor: pointer;
 }
 
-#container .date-time.dark .day {
-  text-align: right;
-  text-transform: uppercase;
-  font-family: Montserrat-R, sans-serif;
-  font-size: var(--h2);
-  color: var(--black);
-  text-shadow: 0 0 1rem rgba(255, 255, 255, 0.8);
-}
-
-#container .date-time.dark .time {
+#container-dark .info .time {
   font-family: Montserrat-B, sans-serif;
   font-size: var(--h1);
   color: var(--black);
 }
 
-#container .loading {
+.loading {
   width: 2.5rem;
 }
-/*# sourceMappingURL=DateTimeWeather.css.map */
+/*# sourceMappingURL=Info.css.map */

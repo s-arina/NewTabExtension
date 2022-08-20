@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import '../css/DateTimeWeather.css';
-import Weather from './Weather';
+import '../css/Info.css';
 
-export default function DateTimeWeather({ theme }) {
+import Weather from './Weather';
+import Notes from './Notes';
+
+export default function Info({ theme }) {
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
 
@@ -29,13 +31,16 @@ export default function DateTimeWeather({ theme }) {
   };
 
   return (
-    <div className={`date-time ${theme}`}>
-      <div className='date-temp'>
-        <h2 className='date'>{date}</h2>
-        <Weather />
+    <div id={`container-${theme}`}>
+      <div className='info'>
+        <div className='date-temp'>
+          <h2>{date}</h2>
+          <h2>{getWeekday(date)}</h2>
+          <Weather />
+        </div>
+        <h1 className='time'>{time}</h1>
+        <Notes />
       </div>
-      <h1 className='time'>{time}</h1>
-      <h2 className='day'>{getWeekday(date)}</h2>
     </div>
   );
 }

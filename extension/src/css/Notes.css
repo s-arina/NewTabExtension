@@ -1,0 +1,44 @@
+#container-light #notes {
+  text-align: center;
+}
+
+#container-light #notes h2 {
+  color: var(--offwhite);
+}
+
+#container-light #notes .notepad {
+  width: 100%;
+  min-height: 5rem;
+  max-height: 30rem;
+  padding: 1.5rem;
+  resize: none;
+  outline: none;
+  overflow: auto;
+  border: none;
+  opacity: 0.5;
+  border-radius: 1rem;
+}
+
+#container-dark #notes {
+  text-align: center;
+}
+
+#container-dark #notes h2 {
+  color: var(--black);
+}
+
+#container-dark #notes .notepad {
+  background-color: var(--black);
+  color: var(--offwhite);
+  width: 100%;
+  min-height: 5rem;
+  max-height: 30rem;
+  padding: 1.5rem;
+  resize: none;
+  outline: none;
+  overflow: auto;
+  border: none;
+  opacity: 0.5;
+  border-radius: 1rem;
+}
+/*# sourceMappingURL=Notes.css.map */

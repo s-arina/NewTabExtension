@@ -8,7 +8,7 @@
   z-index: -1;
 }
 
-footer {
+#bg-select {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -22,7 +22,7 @@ footer {
   gap: 2rem;
 }
 
-footer > span {
+#bg-select > span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -40,7 +40,7 @@ footer > span {
   cursor: pointer;
 }
 
-footer > span::before {
+#bg-select > span::before {
   content: attr(data-hover);
   visibility: hidden;
   opacity: 0;
@@ -50,17 +50,17 @@ footer > span::before {
   bottom: 200%;
 }
 
-footer > span:hover {
+#bg-select > span:hover {
   opacity: 0.8;
 }
 
-footer > span:hover:before {
+#bg-select > span:hover:before {
   opacity: 1;
   visibility: visible;
 }
 
-footer .active {
+#bg-select .active {
   background-color: var(--offwhite);
   opacity: 1;
 }
-/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=Bg.css.map */
