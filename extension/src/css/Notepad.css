@@ -53,6 +53,7 @@
 }
 
 #container-light .note-area-container .note-area {
+  line-height: 1.4em;
   background-color: transparent;
   color: var(--black);
   width: 100%;
@@ -139,6 +140,7 @@
 }
 
 #container-dark .note-area-container .note-area {
+  line-height: 1.4em;
   background-color: transparent;
   color: var(--offwhite);
   width: 100%;
