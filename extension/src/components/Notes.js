@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../css/Notepad.css';
+import '../css/Notes.css';
 
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
@@ -15,7 +15,7 @@ export default function Notes({ theme }) {
   // chevron/other styling
   const chevronRotate = open ? 'rotate(90deg)' : 'rotate(0)';
   const chevronTheme = theme === 'light' ? '#f2f2f2' : '#000';
-  const placeholder = '         *⁺‧͙˚*･༓ ☾　Write a note... ☽ ༓･*˚‧͙⁺*';
+  const placeholder = '        *⁺‧͙˚*･༓ ☾　Write a note... ☽ ༓･*˚‧͙⁺*';
 
   function onChange(e) {
     localStorage.setItem('notes', e.target.value);
@@ -28,7 +28,7 @@ export default function Notes({ theme }) {
   }
 
   return (
-    <div id='notepad'>
+    <div id='notes-container'>
       <div className='notes' onClick={() => notepad()}>
         <h3>Notes</h3>
         <div className='chevron'>
@@ -41,16 +41,14 @@ export default function Notes({ theme }) {
           />
         </div>
       </div>
-      {open && (
-        <div className='note-area-container'>
-          <textarea
-            onChange={onChange}
-            value={notes}
-            className='note-area'
-            placeholder={placeholder}
-          ></textarea>
-        </div>
-      )}
+      <div className={`notepad-container${!open ? '-hidden' : ''}`}>
+        <textarea
+          onChange={onChange}
+          value={notes}
+          className={`notepad${!open ? '-hidden' : ''}`}
+          placeholder={placeholder}
+        ></textarea>
+      </div>
     </div>
   );
 }

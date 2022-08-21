@@ -31,52 +31,7 @@
   gap: 3rem;
 }
 
-#container-light .info {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-#container-light .info .date-temp {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  letter-spacing: 0.5rem;
-}
-
-#container-light .info .date-temp h2 {
-  font-family: Montserrat-R, sans-serif;
-  font-size: var(--h2);
-  color: var(--offwhite);
-  text-shadow: 0 0 1rem rgba(255, 255, 255, 0.8);
-  text-transform: uppercase;
-}
-
-#container-light .info .date-temp .temp {
-  cursor: pointer;
-}
-
-#container-light .info .time {
-  font-family: Montserrat-B, sans-serif;
-  font-size: var(--h1);
-  color: var(--offwhite);
-  text-shadow: 0 0 1rem rgba(255, 255, 255, 0.8);
-  letter-spacing: 0.5rem;
-}
-
+#container-light .info,
 #container-dark .info {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -90,6 +45,7 @@
           justify-content: center;
 }
 
+#container-light .info .date-temp,
 #container-dark .info .date-temp {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -103,25 +59,45 @@
   letter-spacing: 0.5rem;
 }
 
+#container-light .info .date-temp h2,
 #container-dark .info .date-temp h2 {
   font-family: Montserrat-R, sans-serif;
   font-size: var(--h2);
-  color: var(--black);
   text-transform: uppercase;
 }
 
+#container-light .info .date-temp .temp,
 #container-dark .info .date-temp .temp {
   cursor: pointer;
 }
 
+#container-light .info .time,
 #container-dark .info .time {
   font-family: Montserrat-B, sans-serif;
   font-size: var(--h1);
-  color: var(--black);
   letter-spacing: 0.5rem;
 }
 
-.loading {
+#container-light .loading,
+#container-dark .loading {
   width: 2.5rem;
+}
+
+#container-light .info .date-temp h2 {
+  color: var(--offwhite);
+  text-shadow: 0 0 1rem rgba(255, 255, 255, 0.8);
+}
+
+#container-light .info .time {
+  color: var(--offwhite);
+  text-shadow: 0 0 1rem rgba(255, 255, 255, 0.8);
+}
+
+#container-dark .info .date-temp h2 {
+  color: var(--black);
+}
+
+#container-dark .info .time {
+  color: var(--black);
 }
 /*# sourceMappingURL=Info.css.map */

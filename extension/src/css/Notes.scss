@@ -1,0 +1,134 @@
+#container-light #notes-container,
+#container-dark #notes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+
+  .notes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    &:hover {
+      cursor: pointer;
+    }
+    h3 {
+      font-size: var(--h3);
+      letter-spacing: 0.3rem;
+      text-transform: uppercase;
+    }
+    .chevron {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .notepad-container,
+  .notepad-container-hidden {
+    width: 100%;
+    border-radius: 1rem;
+    .notepad,
+    .notepad-hidden {
+      line-height: 1.4em;
+      width: 100%;
+      height: 10rem;
+      resize: none;
+      outline: none;
+      overflow: auto;
+      border: none;
+      &::placeholder {
+        opacity: 0.6;
+        line-height: 10rem;
+      }
+    }
+  }
+
+  .notepad-container-hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s;
+    padding: 0;
+    .notepad-hidden {
+      visibility: hidden;
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      transition: all 0.5s;
+    }
+  }
+
+  .notepad-container {
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.5s;
+    padding: 1.5rem;
+    .notepad {
+      visibility: visible;
+      opacity: 1;
+      transition: all 0.5s;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    width: 1rem;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-clip: padding-box;
+    border-radius: 2rem;
+    border: 0.3rem solid transparent;
+  }
+}
+
+// ==================== LIGHT / DARK THEME
+
+// LIGHT VER
+#container-light {
+  h3 {
+    color: var(--offwhite);
+    text-shadow: 0 0 1rem rgba(255, 255, 255, 0.8);
+  }
+
+  .notepad-container,
+  .notepad-container-hidden {
+    background-color: rgba(255, 255, 255, 0.5);
+    .notepad,
+    .notepad-hidden {
+      background-color: transparent;
+      color: var(--black);
+      &::placeholder {
+        color: var(--black);
+      }
+    }
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+// DARK VER
+#container-dark {
+  h3 {
+    color: var(--black);
+  }
+
+  .notepad-container,
+  .notepad-container-hidden {
+    background-color: rgba(0, 0, 0, 0.5);
+
+    .notepad,
+    .notepad-hidden {
+      background-color: transparent;
+      color: var(--offwhite);
+      &::placeholder {
+        color: var(--offwhite);
+      }
+    }
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}

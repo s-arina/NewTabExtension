@@ -1,0 +1,269 @@
+#container-light #notes-container,
+#container-dark #notes-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+#container-light #notes-container .notes,
+#container-dark #notes-container .notes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0.5rem;
+}
+
+#container-light #notes-container .notes:hover,
+#container-dark #notes-container .notes:hover {
+  cursor: pointer;
+}
+
+#container-light #notes-container .notes h3,
+#container-dark #notes-container .notes h3 {
+  font-size: var(--h3);
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+}
+
+#container-light #notes-container .notes .chevron,
+#container-dark #notes-container .notes .chevron {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#container-light #notes-container .notepad-container,
+#container-light #notes-container .notepad-container-hidden,
+#container-dark #notes-container .notepad-container,
+#container-dark #notes-container .notepad-container-hidden {
+  width: 100%;
+  border-radius: 1rem;
+}
+
+#container-light #notes-container .notepad-container .notepad,
+#container-light #notes-container .notepad-container .notepad-hidden,
+#container-light #notes-container .notepad-container-hidden .notepad,
+#container-light #notes-container .notepad-container-hidden .notepad-hidden,
+#container-dark #notes-container .notepad-container .notepad,
+#container-dark #notes-container .notepad-container .notepad-hidden,
+#container-dark #notes-container .notepad-container-hidden .notepad,
+#container-dark #notes-container .notepad-container-hidden .notepad-hidden {
+  line-height: 1.4em;
+  width: 100%;
+  height: 10rem;
+  resize: none;
+  outline: none;
+  overflow: auto;
+  border: none;
+}
+
+#container-light #notes-container .notepad-container .notepad::-webkit-input-placeholder,
+#container-light #notes-container .notepad-container .notepad-hidden::-webkit-input-placeholder,
+#container-light #notes-container .notepad-container-hidden .notepad::-webkit-input-placeholder,
+#container-light #notes-container .notepad-container-hidden .notepad-hidden::-webkit-input-placeholder,
+#container-dark #notes-container .notepad-container .notepad::-webkit-input-placeholder,
+#container-dark #notes-container .notepad-container .notepad-hidden::-webkit-input-placeholder,
+#container-dark #notes-container .notepad-container-hidden .notepad::-webkit-input-placeholder,
+#container-dark #notes-container .notepad-container-hidden .notepad-hidden::-webkit-input-placeholder {
+  opacity: 0.6;
+  line-height: 10rem;
+}
+
+#container-light #notes-container .notepad-container .notepad:-ms-input-placeholder,
+#container-light #notes-container .notepad-container .notepad-hidden:-ms-input-placeholder,
+#container-light #notes-container .notepad-container-hidden .notepad:-ms-input-placeholder,
+#container-light #notes-container .notepad-container-hidden .notepad-hidden:-ms-input-placeholder,
+#container-dark #notes-container .notepad-container .notepad:-ms-input-placeholder,
+#container-dark #notes-container .notepad-container .notepad-hidden:-ms-input-placeholder,
+#container-dark #notes-container .notepad-container-hidden .notepad:-ms-input-placeholder,
+#container-dark #notes-container .notepad-container-hidden .notepad-hidden:-ms-input-placeholder {
+  opacity: 0.6;
+  line-height: 10rem;
+}
+
+#container-light #notes-container .notepad-container .notepad::-ms-input-placeholder,
+#container-light #notes-container .notepad-container .notepad-hidden::-ms-input-placeholder,
+#container-light #notes-container .notepad-container-hidden .notepad::-ms-input-placeholder,
+#container-light #notes-container .notepad-container-hidden .notepad-hidden::-ms-input-placeholder,
+#container-dark #notes-container .notepad-container .notepad::-ms-input-placeholder,
+#container-dark #notes-container .notepad-container .notepad-hidden::-ms-input-placeholder,
+#container-dark #notes-container .notepad-container-hidden .notepad::-ms-input-placeholder,
+#container-dark #notes-container .notepad-container-hidden .notepad-hidden::-ms-input-placeholder {
+  opacity: 0.6;
+  line-height: 10rem;
+}
+
+#container-light #notes-container .notepad-container .notepad::placeholder,
+#container-light #notes-container .notepad-container .notepad-hidden::placeholder,
+#container-light #notes-container .notepad-container-hidden .notepad::placeholder,
+#container-light #notes-container .notepad-container-hidden .notepad-hidden::placeholder,
+#container-dark #notes-container .notepad-container .notepad::placeholder,
+#container-dark #notes-container .notepad-container .notepad-hidden::placeholder,
+#container-dark #notes-container .notepad-container-hidden .notepad::placeholder,
+#container-dark #notes-container .notepad-container-hidden .notepad-hidden::placeholder {
+  opacity: 0.6;
+  line-height: 10rem;
+}
+
+#container-light #notes-container .notepad-container-hidden,
+#container-dark #notes-container .notepad-container-hidden {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  padding: 0;
+}
+
+#container-light #notes-container .notepad-container-hidden .notepad-hidden,
+#container-dark #notes-container .notepad-container-hidden .notepad-hidden {
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+#container-light #notes-container .notepad-container,
+#container-dark #notes-container .notepad-container {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  padding: 1.5rem;
+}
+
+#container-light #notes-container .notepad-container .notepad,
+#container-dark #notes-container .notepad-container .notepad {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+#container-light #notes-container ::-webkit-scrollbar,
+#container-dark #notes-container ::-webkit-scrollbar {
+  width: 1rem;
+}
+
+#container-light #notes-container ::-webkit-scrollbar-thumb,
+#container-dark #notes-container ::-webkit-scrollbar-thumb {
+  background-clip: padding-box;
+  border-radius: 2rem;
+  border: 0.3rem solid transparent;
+}
+
+#container-light h3 {
+  color: var(--offwhite);
+  text-shadow: 0 0 1rem rgba(255, 255, 255, 0.8);
+}
+
+#container-light .notepad-container,
+#container-light .notepad-container-hidden {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+#container-light .notepad-container .notepad,
+#container-light .notepad-container .notepad-hidden,
+#container-light .notepad-container-hidden .notepad,
+#container-light .notepad-container-hidden .notepad-hidden {
+  background-color: transparent;
+  color: var(--black);
+}
+
+#container-light .notepad-container .notepad::-webkit-input-placeholder,
+#container-light .notepad-container .notepad-hidden::-webkit-input-placeholder,
+#container-light .notepad-container-hidden .notepad::-webkit-input-placeholder,
+#container-light .notepad-container-hidden .notepad-hidden::-webkit-input-placeholder {
+  color: var(--black);
+}
+
+#container-light .notepad-container .notepad:-ms-input-placeholder,
+#container-light .notepad-container .notepad-hidden:-ms-input-placeholder,
+#container-light .notepad-container-hidden .notepad:-ms-input-placeholder,
+#container-light .notepad-container-hidden .notepad-hidden:-ms-input-placeholder {
+  color: var(--black);
+}
+
+#container-light .notepad-container .notepad::-ms-input-placeholder,
+#container-light .notepad-container .notepad-hidden::-ms-input-placeholder,
+#container-light .notepad-container-hidden .notepad::-ms-input-placeholder,
+#container-light .notepad-container-hidden .notepad-hidden::-ms-input-placeholder {
+  color: var(--black);
+}
+
+#container-light .notepad-container .notepad::placeholder,
+#container-light .notepad-container .notepad-hidden::placeholder,
+#container-light .notepad-container-hidden .notepad::placeholder,
+#container-light .notepad-container-hidden .notepad-hidden::placeholder {
+  color: var(--black);
+}
+
+#container-light ::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+#container-dark h3 {
+  color: var(--black);
+}
+
+#container-dark .notepad-container,
+#container-dark .notepad-container-hidden {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#container-dark .notepad-container .notepad,
+#container-dark .notepad-container .notepad-hidden,
+#container-dark .notepad-container-hidden .notepad,
+#container-dark .notepad-container-hidden .notepad-hidden {
+  background-color: transparent;
+  color: var(--offwhite);
+}
+
+#container-dark .notepad-container .notepad::-webkit-input-placeholder,
+#container-dark .notepad-container .notepad-hidden::-webkit-input-placeholder,
+#container-dark .notepad-container-hidden .notepad::-webkit-input-placeholder,
+#container-dark .notepad-container-hidden .notepad-hidden::-webkit-input-placeholder {
+  color: var(--offwhite);
+}
+
+#container-dark .notepad-container .notepad:-ms-input-placeholder,
+#container-dark .notepad-container .notepad-hidden:-ms-input-placeholder,
+#container-dark .notepad-container-hidden .notepad:-ms-input-placeholder,
+#container-dark .notepad-container-hidden .notepad-hidden:-ms-input-placeholder {
+  color: var(--offwhite);
+}
+
+#container-dark .notepad-container .notepad::-ms-input-placeholder,
+#container-dark .notepad-container .notepad-hidden::-ms-input-placeholder,
+#container-dark .notepad-container-hidden .notepad::-ms-input-placeholder,
+#container-dark .notepad-container-hidden .notepad-hidden::-ms-input-placeholder {
+  color: var(--offwhite);
+}
+
+#container-dark .notepad-container .notepad::placeholder,
+#container-dark .notepad-container .notepad-hidden::placeholder,
+#container-dark .notepad-container-hidden .notepad::placeholder,
+#container-dark .notepad-container-hidden .notepad-hidden::placeholder {
+  color: var(--offwhite);
+}
+
+#container-dark ::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/*# sourceMappingURL=Notes.css.map */

@@ -23,14 +23,14 @@
   gap: 2rem;
 }
 
-#bg-select-light > span {
+#bg-select-light > span,
+#bg-select-dark > span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: var(--offwhite);
   opacity: 0.3;
   width: 1.5rem;
   height: 1.5rem;
@@ -41,69 +41,53 @@
   cursor: pointer;
 }
 
-#bg-select-light > span::before {
-  content: attr(data-hover);
-  visibility: hidden;
-  opacity: 0;
-  color: var(--offwhite);
-  font-size: 1.2rem;
-  position: absolute;
-  bottom: 200%;
-}
-
-#bg-select-light > span:hover {
-  opacity: 0.8;
-}
-
-#bg-select-light > span:hover:before {
-  opacity: 1;
-  visibility: visible;
-}
-
-#bg-select-light .active {
-  background-color: var(--offwhite);
-  opacity: 0.8;
-}
-
-#bg-select-dark > span {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background-color: var(--black);
-  opacity: 0.2;
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 50%;
-  position: relative;
-  -webkit-transition: opacity 0.3s, visibility 0.3s;
-  transition: opacity 0.3s, visibility 0.3s;
-  cursor: pointer;
-}
-
+#bg-select-light > span::before,
 #bg-select-dark > span::before {
   content: attr(data-hover);
   visibility: hidden;
   opacity: 0;
-  color: var(--black);
   font-size: 1.2rem;
   position: absolute;
   bottom: 200%;
 }
 
-#bg-select-dark > span:hover {
+#bg-select-light > span::before:hover,
+#bg-select-dark > span::before:hover {
   opacity: 0.8;
 }
 
-#bg-select-dark > span:hover:before {
+#bg-select-light > span::before:hover:before,
+#bg-select-dark > span::before:hover:before {
   opacity: 1;
   visibility: visible;
 }
 
+#bg-select-light .active,
+#bg-select-dark .active {
+  opacity: 0.8;
+}
+
+#bg-select-light > span {
+  background-color: var(--offwhite);
+}
+
+#bg-select-light > span::before {
+  color: var(--offwhite);
+}
+
+#bg-select-light .active {
+  background-color: var(--offwhite);
+}
+
+#bg-select-dark > span {
+  background-color: var(--black);
+}
+
+#bg-select-dark > span::before {
+  color: var(--black);
+}
+
 #bg-select-dark .active {
   background-color: var(--black);
-  opacity: 0.8;
 }
 /*# sourceMappingURL=Bg.css.map */
