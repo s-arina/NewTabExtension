@@ -51,13 +51,13 @@
   bottom: 200%;
 }
 
-#bg-select-light > span::before:hover,
-#bg-select-dark > span::before:hover {
+#bg-select-light > span:hover,
+#bg-select-dark > span:hover {
   opacity: 0.8;
 }
 
-#bg-select-light > span::before:hover:before,
-#bg-select-dark > span::before:hover:before {
+#bg-select-light > span:hover:before,
+#bg-select-dark > span:hover:before {
   opacity: 1;
   visibility: visible;
 }

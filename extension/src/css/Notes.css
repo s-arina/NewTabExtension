@@ -23,6 +23,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   gap: 0.5rem;
+  margin: 0 auto;
 }
 
 #container-light #notes-container .notes:hover,
@@ -121,11 +122,21 @@
 }
 
 #container-light #notes-container .notepad-container-hidden,
+#container-light #notes-container .notepad-hidden,
+#container-light #notes-container .notepad-container,
+#container-light #notes-container .notepad,
+#container-dark #notes-container .notepad-container-hidden,
+#container-dark #notes-container .notepad-hidden,
+#container-dark #notes-container .notepad-container,
+#container-dark #notes-container .notepad {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+#container-light #notes-container .notepad-container-hidden,
 #container-dark #notes-container .notepad-container-hidden {
   visibility: hidden;
   opacity: 0;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
   padding: 0;
 }
 
@@ -134,17 +145,12 @@
   visibility: hidden;
   opacity: 0;
   height: 0;
-  overflow: hidden;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
 }
 
 #container-light #notes-container .notepad-container,
 #container-dark #notes-container .notepad-container {
   visibility: visible;
   opacity: 1;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
   padding: 1.5rem;
 }
 
@@ -152,8 +158,6 @@
 #container-dark #notes-container .notepad-container .notepad {
   visibility: visible;
   opacity: 1;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
 }
 
 #container-light #notes-container ::-webkit-scrollbar,

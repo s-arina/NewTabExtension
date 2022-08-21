@@ -9,21 +9,23 @@ export default function Info({ theme }) {
   const [time, setTime] = useState('');
 
   useEffect(() => {
-    getDateTime();
-    setInterval(() => getDateTime, 1000);
+    setInterval(
+      (function getDateTime() {
+        const currDate = new Date().toLocaleDateString().replace(/\//gi, '-');
+        const currTime = new Date().toLocaleTimeString('en-US', {
+          hour: 'numeric',
+          minute: 'numeric',
+          hour12: true,
+        });
+
+        setDate(currDate);
+        setTime(currTime);
+
+        return getDateTime;
+      })(),
+      1000
+    );
   }, []);
-
-  const getDateTime = () => {
-    const currDate = new Date().toLocaleDateString().replace(/\//gi, '-');
-    const currTime = new Date().toLocaleTimeString('en-US', {
-      hour: 'numeric',
-      minute: 'numeric',
-      hour12: true,
-    });
-
-    setDate(currDate);
-    setTime(currTime);
-  };
 
   const getWeekday = (day) => {
     const date = new Date(day);

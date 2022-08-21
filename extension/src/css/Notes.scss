@@ -10,6 +10,7 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    margin: 0 auto;
     &:hover {
       cursor: pointer;
     }
@@ -44,29 +45,31 @@
     }
   }
 
+  .notepad-container-hidden,
+  .notepad-hidden,
+  .notepad-container,
+  .notepad {
+    transition: all 0.5s;
+  }
+
   .notepad-container-hidden {
     visibility: hidden;
     opacity: 0;
-    transition: all 0.5s;
     padding: 0;
     .notepad-hidden {
       visibility: hidden;
       opacity: 0;
       height: 0;
-      overflow: hidden;
-      transition: all 0.5s;
     }
   }
 
   .notepad-container {
     visibility: visible;
     opacity: 1;
-    transition: all 0.5s;
     padding: 1.5rem;
     .notepad {
       visibility: visible;
       opacity: 1;
-      transition: all 0.5s;
     }
   }
 

@@ -34,12 +34,12 @@
       font-size: 1.2rem;
       position: absolute;
       bottom: 200%;
-      &:hover {
-        opacity: 0.8;
-        &:before {
-          opacity: 1;
-          visibility: visible;
-        }
+    }
+    &:hover {
+      opacity: 0.8;
+      &:before {
+        opacity: 1;
+        visibility: visible;
       }
     }
   }
@@ -67,7 +67,6 @@
 #bg-select-dark {
   & > span {
     background-color: var(--black);
-
     &::before {
       color: var(--black);
     }
