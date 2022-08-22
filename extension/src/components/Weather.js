@@ -3,35 +3,61 @@ import axios from 'axios';
 import loader from '../imgs/loader.gif';
 
 export default function Weather() {
+  // cache coordinates to use until location is changed
+  // if coordinates are the same, geolocation will not run, saves rendering time
+  const getLat = window.localStorage.getItem('lat');
+  const getLong = window.localStorage.getItem('long');
+
   const apiKey = process.env.REACT_APP_WEATHER_API;
   const url = 'https://api.weatherapi.com/v1/';
 
-  const [lat, setLat] = useState('');
-  const [long, setLong] = useState('');
+  const [lat, setLat] = useState(getLat ? getLat : '');
+  const [long, setLong] = useState(getLong ? getLong : '');
   const [weatherData, setWeatherData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [unit, setUnit] = useState(true);
 
   useEffect(() => {
-    // api call runs on refresh
     setLoading(true);
+    getCoords();
     fetchWeatherData();
   }, [lat, long]);
 
-  // api call for forecast
-  const fetchWeatherData = async () => {
+  const getCoords = () => {
     navigator.geolocation.getCurrentPosition(function (position) {
       const { latitude, longitude } = position.coords;
-      setLat(latitude);
-      setLong(longitude);
+
+      if (!getLat && !getLong) {
+        window.localStorage.setItem('lat', latitude);
+        window.localStorage.setItem('long', longitude);
+        setLat(latitude);
+        setLong(longitude);
+        // console.log('doesnt exist yet');
+      } else if (
+        getLong &&
+        getLat &&
+        getLat !== latitude &&
+        getLong !== longitude
+      ) {
+        window.localStorage.setItem('lat', latitude);
+        window.localStorage.setItem('long', longitude);
+        // console.log('coords updated');
+      }
+      // console.log('coords are the same');
     });
+  };
+
+  // api call for forecast
+  const fetchWeatherData = async () => {
+    // console.time('execution time');
     try {
       const { data } = await axios.get(
         `${url}forecast.json?key=${apiKey}&q=${lat},${long}&aqi=no`
       );
       setLoading(false);
       setWeatherData(data);
+      // console.timeEnd('execution time');
     } catch (err) {
       setError('Error: Could not retrieve data. Please try again.');
     }

@@ -1,6 +1,6 @@
 ## New Tab
 
-A new tab extension for Chrome using React.
+A new tab extension for Chrome made using React.
 
 ### Functionality
 
