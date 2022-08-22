@@ -33,7 +33,6 @@ export default function Weather() {
         window.localStorage.setItem('long', longitude);
         setLat(latitude);
         setLong(longitude);
-        // console.log('doesnt exist yet');
       } else if (
         getLong &&
         getLat &&
@@ -42,22 +41,18 @@ export default function Weather() {
       ) {
         window.localStorage.setItem('lat', latitude);
         window.localStorage.setItem('long', longitude);
-        // console.log('coords updated');
       }
-      // console.log('coords are the same');
     });
   };
 
   // api call for forecast
   const fetchWeatherData = async () => {
-    // console.time('execution time');
     try {
       const { data } = await axios.get(
         `${url}forecast.json?key=${apiKey}&q=${lat},${long}&aqi=no`
       );
       setLoading(false);
       setWeatherData(data);
-      // console.timeEnd('execution time');
     } catch (err) {
       setError('Error: Could not retrieve data. Please try again.');
     }
