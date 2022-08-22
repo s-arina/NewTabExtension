@@ -24,17 +24,17 @@
 }
 
 #bg-select-light > span,
-#bg-select-dark > span {
+#bg-select-light .brush-icon,
+#bg-select-dark > span,
+#bg-select-dark .brush-icon {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  opacity: 0.3;
   width: 1.5rem;
   height: 1.5rem;
-  border-radius: 50%;
   position: relative;
   -webkit-transition: opacity 0.3s, visibility 0.3s;
   transition: opacity 0.3s, visibility 0.3s;
@@ -42,8 +42,11 @@
 }
 
 #bg-select-light > span::before,
-#bg-select-dark > span::before {
+#bg-select-light .brush-icon::before,
+#bg-select-dark > span::before,
+#bg-select-dark .brush-icon::before {
   content: attr(data-hover);
+  text-shadow: 0 0 0.3rem rgba(255, 255, 255, 0.8);
   visibility: hidden;
   opacity: 0;
   font-size: 1.2rem;
@@ -52,14 +55,24 @@
 }
 
 #bg-select-light > span:hover,
-#bg-select-dark > span:hover {
+#bg-select-light .brush-icon:hover,
+#bg-select-dark > span:hover,
+#bg-select-dark .brush-icon:hover {
   opacity: 0.8;
 }
 
 #bg-select-light > span:hover:before,
-#bg-select-dark > span:hover:before {
+#bg-select-light .brush-icon:hover:before,
+#bg-select-dark > span:hover:before,
+#bg-select-dark .brush-icon:hover:before {
   opacity: 1;
   visibility: visible;
+}
+
+#bg-select-light span,
+#bg-select-dark span {
+  opacity: 0.3;
+  border-radius: 50%;
 }
 
 #bg-select-light .active,
@@ -79,6 +92,10 @@
   background-color: var(--offwhite);
 }
 
+#bg-select-light .brush-icon {
+  color: var(--offwhite);
+}
+
 #bg-select-dark > span {
   background-color: var(--black);
 }
@@ -89,5 +106,33 @@
 
 #bg-select-dark .active {
   background-color: var(--black);
+}
+
+#bg-select-dark .brush-icon {
+  color: var(--black);
+}
+
+.bg-enter {
+  opacity: 0;
+  -webkit-transition: var(--bg-transition);
+  transition: var(--bg-transition);
+}
+
+.bg-enter-active {
+  opacity: 1;
+  -webkit-transition: var(--bg-transition);
+  transition: var(--bg-transition);
+}
+
+.bg-exit {
+  opacity: 0;
+  -webkit-transition: var(--bg-transition);
+  transition: var(--bg-transition);
+}
+
+.bg-exit-active {
+  opacity: 1;
+  -webkit-transition: var(--bg-transition);
+  transition: var(--bg-transition);
 }
 /*# sourceMappingURL=Bg.css.map */

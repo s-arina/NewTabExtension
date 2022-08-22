@@ -49,7 +49,7 @@
   .notepad-hidden,
   .notepad-container,
   .notepad {
-    transition: all 0.5s;
+    transition: all 0.3s;
   }
 
   .notepad-container-hidden {
@@ -115,12 +115,12 @@
 #container-dark {
   h3 {
     color: var(--black);
+    text-shadow: 0 0 0.8rem rgba(255, 255, 255, 0.8);
   }
 
   .notepad-container,
   .notepad-container-hidden {
     background-color: rgba(0, 0, 0, 0.5);
-
     .notepad,
     .notepad-hidden {
       background-color: transparent;

@@ -9,6 +9,13 @@ export default function Info({ theme }) {
   const [time, setTime] = useState('');
 
   useEffect(() => {
+    // problem: getDateTime set to run every minute, but that leads to it not rendering on load
+    // need a way to run every minute, but call it immediately at the beginning
+
+    // this solution causes a delay, inaccurate time is shown:
+    // getDateTime();
+    // setInterval(() => getDateTime(), 1000)
+
     setInterval(
       (function getDateTime() {
         const currDate = new Date().toLocaleDateString().replace(/\//gi, '-');
@@ -23,7 +30,7 @@ export default function Info({ theme }) {
 
         return getDateTime;
       })(),
-      1000
+      60 * 1000
     );
   }, []);
 

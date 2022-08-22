@@ -66,8 +66,8 @@
   text-transform: uppercase;
 }
 
-#container-light .info .date-temp .temp,
-#container-dark .info .date-temp .temp {
+#container-light .info .date-temp h2:nth-child(3),
+#container-dark .info .date-temp h2:nth-child(3) {
   cursor: pointer;
 }
 
@@ -95,6 +95,7 @@
 
 #container-dark .info .date-temp h2 {
   color: var(--black);
+  text-shadow: 0 0 0.8rem rgba(255, 255, 255, 0.8);
 }
 
 #container-dark .info .time {

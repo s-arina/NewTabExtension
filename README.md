@@ -2,12 +2,12 @@
 
 A new tab extension for Chrome using React.
 
-### MVP
+### Functionality
 
 - date/time
-- weather (geolocation)
-- notepad (localStorage or database)
-- custom background image upload
+- weather/current temp (geolocation, toggle fahrenheit/celcius)
+- notepad (notes saved in localStorage)
+- 4 background options, light/dark themes applied accordingly
 
 ### Building
 

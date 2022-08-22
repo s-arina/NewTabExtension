@@ -36,7 +36,7 @@ export default function Notes({ theme }) {
             style={{
               transform: chevronRotate,
               fill: chevronTheme,
-              transition: 'all 0.2s linear',
+              transition: 'all 0.1s',
             }}
           />
         </div>

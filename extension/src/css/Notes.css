@@ -129,8 +129,8 @@
 #container-dark #notes-container .notepad-hidden,
 #container-dark #notes-container .notepad-container,
 #container-dark #notes-container .notepad {
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 #container-light #notes-container .notepad-container-hidden,
@@ -224,6 +224,7 @@
 
 #container-dark h3 {
   color: var(--black);
+  text-shadow: 0 0 0.8rem rgba(255, 255, 255, 0.8);
 }
 
 #container-dark .notepad-container,
