@@ -50,7 +50,7 @@ export default function Bg() {
 
   // set light/dark theme for text
   const [theme, setTheme] = useState(
-    currBg === 'engawa' || currBg === 'street' ? 'light' : 'dark'
+    currBg.match(/engawa|street/) ? 'light' : 'dark'
   );
 
   const [bgChanged, setBgChanged] = useState(false);

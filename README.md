@@ -2,17 +2,17 @@
 
 A new tab extension for Chrome made using React.
 
-### Functionality
+![new tab demo](https://github.com/s-arina/NewTabExtension/blob/main/images/newTab.gif)
 
-- date/time
-- weather/current temp (geolocation, toggle fahrenheit/celcius)
-- notepad (notes saved in localStorage)
-- 4 background options, light/dark themes applied accordingly
+### Features
 
-### Building
+- Date/Time
+- Weather (toggle between Fahrenheit/Celcius)
+- Notepad
+- Multiple background options
 
-- cra extension nested inside newTab folder
-- added `"move": "yarn build && rm -rf ../static && mv build/static ../static"` script to package.json
-- `npm run move` inside extension
-- open chrome://extensions
-- developer mode on, load unpacked
+### Background Art Credits 🎨
+
+- https://twitter.com/lennsan_
+- https://twitter.com/waneella_
+- https://twitter.com/1041uuu

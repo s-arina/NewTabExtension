@@ -162,7 +162,7 @@
 
 #container-light #notes-container ::-webkit-scrollbar,
 #container-dark #notes-container ::-webkit-scrollbar {
-  width: 1rem;
+  width: 0;
 }
 
 #container-light #notes-container ::-webkit-scrollbar-thumb,
