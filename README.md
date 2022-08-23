@@ -13,6 +13,6 @@ A new tab extension for Chrome made using React.
 
 ### Background Art Credits 🎨
 
-- https://twitter.com/lennsan_
-- https://twitter.com/waneella_
-- https://twitter.com/1041uuu
+- <a href="https://twitter.com/lennsan_">lennsan_</a>
+- <a href="https://twitter.com/waneella_">waneella_</a>
+- <a href="https://twitter.com/1041uuu">1041uuu</a>
