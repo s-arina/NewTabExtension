@@ -43,27 +43,26 @@ export default function Bg() {
     },
   ];
 
+  // custom bg from local Storage
+  const getCustomBg = window.localStorage.getItem('customBg');
+
   const customBg = {
     id: 5,
     name: 'custom',
-    img: '',
+    img: getCustomBg,
     artist: '',
     theme: '',
   };
 
   // set random bg on load as initial state (not including custom if there's no image)
   let random;
-  if (customBg.img) {
+  if (getCustomBg) {
     random = ['engawa', 'pond', 'street', 'train', 'custom'];
   } else {
     random = ['engawa', 'pond', 'street', 'train'];
   }
-
   const randomBg = Math.floor(Math.random() * random.length);
   const [currBg, setCurrBg] = useState(random[randomBg]);
-
-  // custom bg input popup
-  const [customInput, setCustomInput] = useState(false);
 
   // set light/dark theme for text
   const [theme, setTheme] = useState(
@@ -72,16 +71,23 @@ export default function Bg() {
 
   const [bgChanged, setBgChanged] = useState(false);
 
+  // custom bg states
+  // if custom is the first bg on load, input is true, else false
+  const [customInputPopup, setCustomInputPopup] = useState(
+    currBg === 'custom' ? true : false
+  );
+  const [customInput, setCustomInput] = useState(
+    getCustomBg ? getCustomBg : ''
+  );
+
   const changeBg = (name) => {
+    // hide input whenever a bg is selected
+    setCustomInputPopup(false);
     // stop rerendering if the current bg is clicked again
-    if (currBg !== name) {
+    if (currBg !== name && customBg.img) {
       setCurrBg(name);
       setBgChanged(!bgChanged);
     }
-  };
-
-  const setCustomBg = (name) => {
-    console.log(name);
   };
 
   return (
@@ -99,6 +105,8 @@ export default function Bg() {
                 ? street
                 : currBg === 'train'
                 ? train
+                : currBg === 'custom'
+                ? getCustomBg
                 : ''
             })`,
           }}
@@ -109,10 +117,11 @@ export default function Bg() {
         bgArray={bgArray}
         currBg={currBg}
         customBg={customBg}
-        setCustomInput={setCustomInput}
+        customInputPopup={customInputPopup}
+        setCustomInputPopup={setCustomInputPopup}
         changeBg={changeBg}
         customInput={customInput}
-        setCustomBg={setCustomBg}
+        setCustomInput={setCustomInput}
         setTheme={setTheme}
         theme={theme}
       />
