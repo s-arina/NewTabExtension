@@ -43,10 +43,27 @@ export default function Bg() {
     },
   ];
 
-  // set random bg on load as initial state
-  const random = ['engawa', 'pond', 'street', 'train'];
+  const customBg = {
+    id: 5,
+    name: 'custom',
+    img: '',
+    artist: '',
+    theme: '',
+  };
+
+  // set random bg on load as initial state (not including custom if there's no image)
+  let random;
+  if (customBg.img) {
+    random = ['engawa', 'pond', 'street', 'train', 'custom'];
+  } else {
+    random = ['engawa', 'pond', 'street', 'train'];
+  }
+
   const randomBg = Math.floor(Math.random() * random.length);
   const [currBg, setCurrBg] = useState(random[randomBg]);
+
+  // custom bg input popup
+  const [customInput, setCustomInput] = useState(false);
 
   // set light/dark theme for text
   const [theme, setTheme] = useState(
@@ -61,6 +78,10 @@ export default function Bg() {
       setCurrBg(name);
       setBgChanged(!bgChanged);
     }
+  };
+
+  const setCustomBg = (name) => {
+    console.log(name);
   };
 
   return (
@@ -87,7 +108,11 @@ export default function Bg() {
       <BgSelect
         bgArray={bgArray}
         currBg={currBg}
+        customBg={customBg}
+        setCustomInput={setCustomInput}
         changeBg={changeBg}
+        customInput={customInput}
+        setCustomBg={setCustomBg}
         setTheme={setTheme}
         theme={theme}
       />

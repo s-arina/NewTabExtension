@@ -8,6 +8,10 @@ export default function BgSelect({
   changeBg,
   setTheme,
   theme,
+  customBg,
+  setCustomBg,
+  setCustomInput,
+  customInput,
 }) {
   // icon styling
   const brushTheme = theme === 'light' ? '#f2f2f2' : '#000';
@@ -22,8 +26,15 @@ export default function BgSelect({
     window.open(bgArtist[0].artist, '_blank', 'noopener, noreferrer');
   };
 
+  const CustomBgInput = (
+    <div className='custom-input'>
+      <input type='text' placeholder='Paste image URL'></input>
+    </div>
+  );
+
   return (
     <div id={`bg-select-${theme}`}>
+      {/* default backgrounds */}
       {bgArray?.map((bg) => (
         <span
           key={bg.id}
@@ -35,6 +46,19 @@ export default function BgSelect({
           }}
         ></span>
       ))}
+      {/* custom background */}
+      {customBg && (
+        <span
+          key={customBg.id}
+          data-hover={customBg.name}
+          onClick={() => {
+            setCustomBg(customBg.name);
+            setCustomInput(!customInput);
+          }}
+        ></span>
+      )}
+      {/* custom background input */}
+      {customInput && CustomBgInput}
       <div className='brush-icon' data-hover='artist'>
         <BrushIcon
           style={{
