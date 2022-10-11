@@ -3,7 +3,7 @@ import '../css/Notes.css';
 
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
-export default function Notes({ theme }) {
+export default function Notes({ theme, customTheme, currBg }) {
   // save and retrieve notes from local storage & remember if notepad was open or not on refresh
   const notesStorage = localStorage.getItem('notes');
   const notepadState = localStorage.getItem('notepad');
@@ -15,6 +15,7 @@ export default function Notes({ theme }) {
   // chevron/other styling
   const chevronRotate = open ? 'rotate(90deg)' : 'rotate(0)';
   const chevronTheme = theme === 'light' ? '#f2f2f2' : '#000';
+  const chevronCustomTheme = customTheme === 'light' ? '#f2f2f2' : '#000';
   const placeholder = '        *⁺‧͙˚*･༓ ☾　Write a note... ☽ ༓･*˚‧͙⁺*';
 
   function onChange(e) {
@@ -35,7 +36,7 @@ export default function Notes({ theme }) {
           <KeyboardArrowRightIcon
             style={{
               transform: chevronRotate,
-              fill: chevronTheme,
+              fill: currBg === 'custom' ? chevronCustomTheme : chevronTheme,
               transition: 'all 0.1s',
             }}
           />

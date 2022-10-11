@@ -50,7 +50,7 @@ export default function Info({ theme, customTheme, currBg }) {
           </div>
           <h1 className='time'>{time}</h1>
         </div>
-        <Notes theme={theme} />
+        <Notes theme={theme} customTheme={customTheme} currBg={currBg} />
       </div>
     </div>
   );
