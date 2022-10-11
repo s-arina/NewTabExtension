@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
 import engawa from '../imgs/engawa.gif';
@@ -51,7 +51,7 @@ export default function Bg() {
     name: 'custom',
     img: getCustomBg,
     artist: '',
-    theme: '',
+    theme: 'light',
   };
 
   // set random bg on load as initial state (not including custom if there's no image)
@@ -64,18 +64,23 @@ export default function Bg() {
   const randomBg = Math.floor(Math.random() * random.length);
   const [currBg, setCurrBg] = useState(random[randomBg]);
 
+  // store the previous bg to keep the bg if custom is empty
+  const prevBg = useRef(null);
+
+  useEffect(() => {
+    prevBg.current = currBg;
+  }, [currBg]);
+
   // set light/dark theme for text
   const [theme, setTheme] = useState(
     currBg.match(/engawa|street/) ? 'light' : 'dark'
   );
 
+  // state for react transition
   const [bgChanged, setBgChanged] = useState(false);
 
   // custom bg states
-  // if custom is the first bg on load, input is true, else false
-  const [customInputPopup, setCustomInputPopup] = useState(
-    currBg === 'custom' ? true : false
-  );
+  const [customInputPopup, setCustomInputPopup] = useState(false);
   const [customInput, setCustomInput] = useState(
     getCustomBg ? getCustomBg : ''
   );
@@ -84,7 +89,7 @@ export default function Bg() {
     // hide input whenever a bg is selected
     setCustomInputPopup(false);
     // stop rerendering if the current bg is clicked again
-    if (currBg !== name && customBg.img) {
+    if (currBg !== name) {
       setCurrBg(name);
       setBgChanged(!bgChanged);
     }
@@ -105,9 +110,9 @@ export default function Bg() {
                 ? street
                 : currBg === 'train'
                 ? train
-                : currBg === 'custom'
+                : currBg === 'custom' && getCustomBg
                 ? getCustomBg
-                : ''
+                : prevBg
             })`,
           }}
         ></div>
@@ -124,6 +129,9 @@ export default function Bg() {
         setCustomInput={setCustomInput}
         setTheme={setTheme}
         theme={theme}
+        random={random}
+        randomBg={randomBg}
+        setCurrBg={setCurrBg}
       />
     </>
   );

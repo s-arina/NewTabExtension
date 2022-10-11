@@ -1,7 +1,5 @@
 import React from 'react';
-
 import BrushIcon from '@mui/icons-material/Brush';
-import { unstable_createMuiStrictModeTheme } from '@mui/material';
 
 export default function BgSelect({
   bgArray,
@@ -14,8 +12,10 @@ export default function BgSelect({
   customInputPopup,
   customInput,
   setCustomInput,
+  random,
+  randomBg,
+  setCurrBg,
 }) {
-  // get custom bg from local storage
   const getCustomBg = window.localStorage.getItem('customBg');
 
   // icon styling
@@ -31,22 +31,43 @@ export default function BgSelect({
     window.open(bgArtist[0].artist, '_blank', 'noopener, noreferrer');
   };
 
+  // input field on change
   const onChange = (e) => {
     e.preventDefault();
     setCustomInput(e.target.value);
   };
 
+  // input field on submit
   const onSubmit = (e) => {
     e.preventDefault();
+
     // save custom image url in local storage
     window.localStorage.setItem('customBg', customInput);
-    // update img property to the url
+    // update img property in customBg object to the url
     customBg.img = customInput;
-    // problem: bg won't update until refresh
-    // force a bg image change on the spot in a diff way that won't need state to update
-    document.getElementById(
-      'bg'
-    ).style.backgroundImage = `url("${customInput}")`;
+
+    // IF THERE IS A CUSTOM BG
+    if (customBg.img) {
+      // bg won't update until refresh
+      // force a bg image change on the spot in a way that won't need to wait for state to update
+      document.getElementById(
+        'bg'
+      ).style.backgroundImage = `url("${customInput}")`;
+    } else {
+      // ELSE IF THE CUSTOM BG IS CLEARED
+      // generate a random bg
+      const setRandom = random[randomBg];
+      setCurrBg(random[randomBg]);
+      // get the theme of the random bg in the bgArray and set it again
+      bgArray.map((ele) => {
+        if (ele.name === setRandom) {
+          setTheme(ele.theme);
+        }
+      });
+      setCustomInputPopup(false);
+    }
+    // if the url is invalid, show black bg with light theme
+    setTheme('light');
   };
 
   const CustomBgInput = (
