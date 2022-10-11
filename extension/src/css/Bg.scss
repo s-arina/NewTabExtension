@@ -18,7 +18,7 @@
   height: 6rem;
   gap: 2rem;
   & > span,
-  .brush-icon {
+  .icon {
     display: flex;
     justify-content: center;
     width: 1.5rem;
@@ -43,6 +43,10 @@
       }
     }
   }
+  .custom-input {
+    position: absolute;
+    bottom: 4rem;
+  }
   span {
     opacity: 0.3;
     border-radius: 50%;
@@ -50,6 +54,10 @@
 
   .active {
     opacity: 0.8;
+  }
+
+  svg {
+    transform: translate(0px, -1.5px);
   }
 }
 
@@ -66,7 +74,7 @@
   .active {
     background-color: var(--offwhite);
   }
-  .brush-icon {
+  .icon {
     color: var(--offwhite);
   }
 }
@@ -82,7 +90,7 @@
   .active {
     background-color: var(--black);
   }
-  .brush-icon {
+  .icon {
     color: var(--black);
   }
 }

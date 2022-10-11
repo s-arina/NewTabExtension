@@ -1,5 +1,6 @@
 import React from 'react';
 import BrushIcon from '@mui/icons-material/Brush';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 export default function BgSelect({
   bgArray,
@@ -12,12 +13,9 @@ export default function BgSelect({
   customInputPopup,
   customInput,
   setCustomInput,
-  random,
-  randomBg,
   setCurrBg,
+  prevBg,
 }) {
-  const getCustomBg = window.localStorage.getItem('customBg');
-
   // icon styling
   const brushTheme = theme === 'light' ? '#f2f2f2' : '#000';
 
@@ -46,30 +44,16 @@ export default function BgSelect({
     // update img property in customBg object to the url
     customBg.img = customInput;
 
-    // IF THERE IS A CUSTOM BG
-    if (customBg.img) {
-      // bg won't update until refresh
-      // force a bg image change on the spot in a way that won't need to wait for state to update
-      document.getElementById(
-        'bg'
-      ).style.backgroundImage = `url("${customInput}")`;
-    } else {
-      // ELSE IF THE CUSTOM BG IS CLEARED
-      // generate a random bg
-      const setRandom = random[randomBg];
-      setCurrBg(random[randomBg]);
-      // get the theme of the random bg in the bgArray and set it again
-      bgArray.map((ele) => {
-        if (ele.name === setRandom) {
-          setTheme(ele.theme);
-        }
-      });
-      setCustomInputPopup(false);
-    }
-    // if the url is invalid, show black bg with light theme
-    setTheme('light');
+    // bg won't update until refresh
+    // force a bg image change on the spot in a way that won't need to wait for state to update
+    document.getElementById(
+      'bg'
+    ).style.backgroundImage = `url("${customInput}")`;
+
+    setCustomInputPopup(false);
   };
 
+  // custom bg input element
   const CustomBgInput = (
     <div className='custom-input'>
       <form onSubmit={onSubmit}>
@@ -106,21 +90,38 @@ export default function BgSelect({
           data-hover={customBg.name}
           onClick={() => {
             changeBg(customBg.name);
-            setCustomInputPopup(!customInputPopup);
+            setTheme(customBg.theme);
           }}
         ></span>
       )}
-      {/* custom background input */}
-      {customInputPopup ? CustomBgInput : null}
 
-      <div className='brush-icon' data-hover='artist'>
-        <BrushIcon
-          style={{
-            fill: brushTheme,
-            transition: 'all 0.1s',
-          }}
-          onClick={toArtist}
-        />
+      {/* brush icon links to artist social media, but becomes edit button if bg is custom */}
+      <div
+        className='icon'
+        data-hover={currBg === 'custom' ? 'edit' : 'artist'}
+      >
+        {currBg !== 'custom' && (
+          <InfoOutlinedIcon
+            style={{
+              fill: brushTheme,
+              transition: 'all 0.1s',
+              fontSize: '19px',
+            }}
+            onClick={toArtist}
+          />
+        )}
+        {currBg === 'custom' && (
+          <BrushIcon
+            style={{
+              fill: brushTheme,
+              transition: 'all 0.1s',
+              fontSize: '19px',
+            }}
+            onClick={() => setCustomInputPopup(!customInputPopup)}
+          />
+        )}
+        {/* custom background input */}
+        {customInputPopup ? CustomBgInput : null}
       </div>
     </div>
   );

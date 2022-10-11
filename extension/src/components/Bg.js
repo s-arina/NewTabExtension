@@ -47,10 +47,9 @@ export default function Bg() {
   const getCustomBg = window.localStorage.getItem('customBg');
 
   const customBg = {
-    id: 5,
+    id: 1,
     name: 'custom',
     img: getCustomBg,
-    artist: '',
     theme: 'light',
   };
 
@@ -110,7 +109,7 @@ export default function Bg() {
                 ? street
                 : currBg === 'train'
                 ? train
-                : currBg === 'custom' && getCustomBg
+                : currBg === 'custom'
                 ? getCustomBg
                 : prevBg
             })`,
@@ -132,6 +131,7 @@ export default function Bg() {
         random={random}
         randomBg={randomBg}
         setCurrBg={setCurrBg}
+        prevBg={prevBg}
       />
     </>
   );
