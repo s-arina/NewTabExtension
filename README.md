@@ -10,9 +10,10 @@ A new tab extension for Chrome made using React.
 - Weather (toggle between Fahrenheit/Celcius)
 - Notepad
 - Multiple background options
+- Custom background option
 
 ### Background Art Credits 🎨
 
-- <a href="https://twitter.com/lennsan_">lennsan_</a>
-- <a href="https://twitter.com/waneella_">waneella_</a>
+- <a href="https://twitter.com/lennsan_">lennsan\_</a>
+- <a href="https://twitter.com/waneella_">waneella\_</a>
 - <a href="https://twitter.com/1041uuu">1041uuu</a>

@@ -1,7 +1,7 @@
 {
     "short_name": "New Tab",
     "name": "New Tab Extension",
-    "description": "A new tab page with a notepad.",
+    "description": "A new tab page with a notepad and multiple background options.",
     "version": "1.0.0",
     "manifest_version": 3,
     "permissions": [
