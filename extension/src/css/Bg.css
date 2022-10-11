@@ -69,12 +69,6 @@
   visibility: visible;
 }
 
-#bg-select-light .custom-input,
-#bg-select-dark .custom-input {
-  position: absolute;
-  bottom: 4rem;
-}
-
 #bg-select-light span,
 #bg-select-dark span {
   opacity: 0.3;
@@ -90,6 +84,42 @@
 #bg-select-dark svg {
   -webkit-transform: translate(0px, -1.5px);
           transform: translate(0px, -1.5px);
+}
+
+#bg-select-light .custom-input,
+#bg-select-dark .custom-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  bottom: 10rem;
+  width: 20rem;
+}
+
+#bg-select-light .custom-input input,
+#bg-select-dark .custom-input input {
+  font-family: Montserrat-R, sans-serif;
+  letter-spacing: 0.5px;
+  width: 100%;
+  border: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.5rem 3rem 0.5rem 1rem;
+  border-radius: 2rem;
+}
+
+#bg-select-light .custom-input input:focus,
+#bg-select-dark .custom-input input:focus {
+  outline: none;
+}
+
+#bg-select-light .custom-input svg,
+#bg-select-dark .custom-input svg {
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
 }
 
 #bg-select-light > span {

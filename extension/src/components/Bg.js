@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
 import engawa from '../imgs/engawa.gif';
@@ -63,13 +63,6 @@ export default function Bg() {
   const randomBg = Math.floor(Math.random() * random.length);
   const [currBg, setCurrBg] = useState(random[randomBg]);
 
-  // store the previous bg to keep the bg if custom is empty
-  const prevBg = useRef(null);
-
-  useEffect(() => {
-    prevBg.current = currBg;
-  }, [currBg]);
-
   // set light/dark theme for text
   const [theme, setTheme] = useState(
     currBg.match(/engawa|street/) ? 'light' : 'dark'
@@ -111,7 +104,7 @@ export default function Bg() {
                 ? train
                 : currBg === 'custom'
                 ? getCustomBg
-                : prevBg
+                : ''
             })`,
           }}
         ></div>
@@ -131,7 +124,6 @@ export default function Bg() {
         random={random}
         randomBg={randomBg}
         setCurrBg={setCurrBg}
-        prevBg={prevBg}
       />
     </>
   );

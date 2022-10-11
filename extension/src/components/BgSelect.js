@@ -1,6 +1,7 @@
 import React from 'react';
 import BrushIcon from '@mui/icons-material/Brush';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import ArrowCircleRightRoundedIcon from '@mui/icons-material/ArrowCircleRightRounded';
 
 export default function BgSelect({
   bgArray,
@@ -13,11 +14,9 @@ export default function BgSelect({
   customInputPopup,
   customInput,
   setCustomInput,
-  setCurrBg,
-  prevBg,
 }) {
   // icon styling
-  const brushTheme = theme === 'light' ? '#f2f2f2' : '#000';
+  const iconTheme = theme === 'light' ? '#f2f2f2' : '#000';
 
   // loop through array & object to get the artist of the current background
   const bgArtist = bgArray.filter(function (el) {
@@ -55,21 +54,31 @@ export default function BgSelect({
 
   // custom bg input element
   const CustomBgInput = (
-    <div className='custom-input'>
-      <form onSubmit={onSubmit}>
-        <input
-          type='text'
-          placeholder='Paste image URL'
-          onChange={onChange}
-          value={customInput}
-        ></input>
-        <button type='submit'>SUBMIT</button>
-      </form>
-    </div>
+    <form className='custom-input' onSubmit={onSubmit}>
+      <input
+        type='text'
+        placeholder='Paste image URL'
+        onChange={onChange}
+        value={customInput}
+      ></input>
+      <ArrowCircleRightRoundedIcon
+        style={{
+          fill: iconTheme,
+          transition: 'all 0.1s',
+          fontSize: '25px',
+          position: 'absolute',
+          right: '0',
+        }}
+        onClick={onSubmit}
+      />
+    </form>
   );
 
   return (
     <div id={`bg-select-${theme}`}>
+      {/* custom background input */}
+      {customInputPopup ? CustomBgInput : null}
+
       {/* default backgrounds */}
       {bgArray?.map((bg) => (
         <span
@@ -95,33 +104,30 @@ export default function BgSelect({
         ></span>
       )}
 
-      {/* brush icon links to artist social media, but becomes edit button if bg is custom */}
+      {/* info icon on presets, edit icon for custom */}
       <div
         className='icon'
         data-hover={currBg === 'custom' ? 'edit' : 'artist'}
       >
-        {currBg !== 'custom' && (
+        {currBg !== 'custom' ? (
           <InfoOutlinedIcon
             style={{
-              fill: brushTheme,
+              fill: iconTheme,
               transition: 'all 0.1s',
               fontSize: '19px',
             }}
             onClick={toArtist}
           />
-        )}
-        {currBg === 'custom' && (
+        ) : (
           <BrushIcon
             style={{
-              fill: brushTheme,
+              fill: iconTheme,
               transition: 'all 0.1s',
               fontSize: '19px',
             }}
             onClick={() => setCustomInputPopup(!customInputPopup)}
           />
         )}
-        {/* custom background input */}
-        {customInputPopup ? CustomBgInput : null}
       </div>
     </div>
   );

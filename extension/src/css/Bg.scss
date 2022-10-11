@@ -43,10 +43,7 @@
       }
     }
   }
-  .custom-input {
-    position: absolute;
-    bottom: 4rem;
-  }
+
   span {
     opacity: 0.3;
     border-radius: 50%;
@@ -58,6 +55,30 @@
 
   svg {
     transform: translate(0px, -1.5px);
+  }
+
+  .custom-input {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 10rem;
+    width: 20rem;
+    input {
+      font-family: Montserrat-R, sans-serif;
+      letter-spacing: 0.5px;
+      width: 100%;
+      border: 0;
+      background-color: rgba(255, 255, 255, 0.3);
+      color: white;
+      padding: 0.5rem 3rem 0.5rem 1rem;
+      border-radius: 2rem;
+      &:focus {
+        outline: none;
+      }
+    }
+    svg {
+      transform: translate(0, 0);
+    }
   }
 }
 
