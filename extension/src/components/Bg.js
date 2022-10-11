@@ -13,6 +13,7 @@ import BgSelect from './BgSelect';
 export default function Bg() {
   // custom bg from local Storage
   const getCustomBg = window.localStorage.getItem('customBg');
+  const getCustomTheme = window.localStorage.getItem('customTheme');
 
   const twt = 'https://twitter.com/';
   const bgArray = [
@@ -48,7 +49,7 @@ export default function Bg() {
       id: 5,
       name: 'custom',
       img: getCustomBg,
-      theme: 'light',
+      theme: getCustomTheme || 'light',
     },
   ];
 
@@ -62,19 +63,19 @@ export default function Bg() {
   const randomBg = Math.floor(Math.random() * random.length);
   const [currBg, setCurrBg] = useState(random[randomBg]);
 
-  // set light/dark theme for text
+  // set light/dark theme for background
   const [theme, setTheme] = useState(
     currBg.match(/engawa|street/) ? 'light' : 'dark'
   );
+  // set light/dark theme for custom bg
+  const [customTheme, setCustomTheme] = useState(getCustomTheme || 'light');
 
   // state for react transition
   const [bgChanged, setBgChanged] = useState(false);
 
   // custom bg states
   const [customInputPopup, setCustomInputPopup] = useState(false);
-  const [customInput, setCustomInput] = useState(
-    getCustomBg ? getCustomBg : ''
-  );
+  const [customInput, setCustomInput] = useState(getCustomBg || '');
 
   const changeBg = (name) => {
     // hide input whenever a bg is selected
@@ -108,11 +109,10 @@ export default function Bg() {
           }}
         ></div>
       </CSSTransition>
-      <Info currBg={currBg} theme={theme} />
+      <Info currBg={currBg} theme={theme} customTheme={customTheme} />
       <BgSelect
         bgArray={bgArray}
         currBg={currBg}
-        // customBg={customBg}
         customInputPopup={customInputPopup}
         setCustomInputPopup={setCustomInputPopup}
         changeBg={changeBg}
@@ -123,6 +123,8 @@ export default function Bg() {
         random={random}
         randomBg={randomBg}
         setCurrBg={setCurrBg}
+        customTheme={customTheme}
+        setCustomTheme={setCustomTheme}
       />
     </>
   );

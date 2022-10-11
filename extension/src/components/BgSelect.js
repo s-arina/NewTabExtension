@@ -13,9 +13,11 @@ export default function BgSelect({
   customInputPopup,
   customInput,
   setCustomInput,
+  customTheme,
+  setCustomTheme,
 }) {
   // icon styling
-  const submitIconTheme = theme === 'dark' ? '#f2f2f2' : '#000';
+  const submitIconTheme = customTheme === 'dark' ? '#f2f2f2' : '#000';
 
   // input field on change
   const onChange = (e) => {
@@ -43,7 +45,7 @@ export default function BgSelect({
   };
 
   return (
-    <div id={`bg-select-${theme}`}>
+    <div id={`bg-select-${currBg === 'custom' ? customTheme : theme}`}>
       {/* custom background input */}
       {customInputPopup && (
         <CustomBgInput
@@ -62,6 +64,9 @@ export default function BgSelect({
           data-hover={bg.name}
           onClick={() => {
             changeBg(bg.name);
+            if (currBg === 'custom') {
+              setCustomTheme(customTheme);
+            }
             setTheme(bg.theme);
           }}
         ></span>
@@ -70,13 +75,19 @@ export default function BgSelect({
       {/* info icon on presets, edit icon for custom */}
       <Icons
         currBg={currBg}
+        customTheme={customTheme}
         theme={theme}
         bgArray={bgArray}
         setCustomInputPopup={setCustomInputPopup}
         customInputPopup={customInputPopup}
       />
 
-      <ThemeButton theme={theme} setTheme={setTheme} />
+      {currBg === 'custom' && (
+        <ThemeButton
+          customTheme={customTheme}
+          setCustomTheme={setCustomTheme}
+        />
+      )}
     </div>
   );
 }

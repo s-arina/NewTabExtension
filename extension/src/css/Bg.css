@@ -1,4 +1,5 @@
 #bg {
+  background-color: var(--darkgrey);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -46,7 +47,6 @@
 #bg-select-dark > span::before,
 #bg-select-dark .icon::before {
   content: attr(data-hover);
-  text-shadow: 0 0 0.3rem rgba(255, 255, 255, 0.8);
   visibility: hidden;
   opacity: 0;
   font-size: 1.2rem;
@@ -133,6 +133,7 @@
 
 #bg-select-light > span::before {
   color: var(--offwhite);
+  text-shadow: 0 0 0.3rem rgba(255, 255, 255, 0.8);
 }
 
 #bg-select-light .active {

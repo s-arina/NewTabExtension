@@ -4,7 +4,7 @@ import '../css/Info.css';
 import Weather from './Weather';
 import Notes from './Notes';
 
-export default function Info({ theme }) {
+export default function Info({ theme, customTheme, currBg }) {
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
 
@@ -40,7 +40,7 @@ export default function Info({ theme }) {
   };
 
   return (
-    <div id={`container-${theme}`}>
+    <div id={`container-${currBg === 'custom' ? customTheme : theme}`}>
       <div className='info-container'>
         <div className='info'>
           <div className='date-temp'>

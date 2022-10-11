@@ -1,4 +1,5 @@
 #bg {
+  background-color: var(--darkgrey);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -28,7 +29,6 @@
     cursor: pointer;
     &::before {
       content: attr(data-hover);
-      text-shadow: 0 0 0.3rem rgba(255, 255, 255, 0.8);
       visibility: hidden;
       opacity: 0;
       font-size: 1.2rem;
@@ -90,6 +90,7 @@
     background-color: var(--offwhite);
     &::before {
       color: var(--offwhite);
+      text-shadow: 0 0 0.3rem rgba(255, 255, 255, 0.8);
     }
   }
   .active {

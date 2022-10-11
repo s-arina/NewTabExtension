@@ -5,12 +5,14 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 export default function Icons({
   currBg,
   theme,
+  customTheme,
   bgArray,
   setCustomInputPopup,
   customInputPopup,
 }) {
   // icon styling
   const bgSelectIconTheme = theme === 'light' ? '#f2f2f2' : '#000';
+  const editIconTheme = customTheme === 'light' ? '#f2f2f2' : '#000';
 
   // loop through array & object to get the artist of the current background
   const bgArtist = bgArray.filter(function (el) {
@@ -36,7 +38,7 @@ export default function Icons({
       ) : (
         <BrushIcon
           style={{
-            fill: bgSelectIconTheme,
+            fill: editIconTheme,
             transition: 'all 0.1s',
             fontSize: '19px',
           }}

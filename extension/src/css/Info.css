@@ -95,7 +95,6 @@
 
 #container-dark .info .date-temp h2 {
   color: var(--black);
-  text-shadow: 0 0 0.8rem rgba(255, 255, 255, 0.8);
 }
 
 #container-dark .info .time {
