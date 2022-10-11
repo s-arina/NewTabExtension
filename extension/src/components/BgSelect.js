@@ -1,6 +1,7 @@
 import React from 'react';
 import Icons from './Icons';
 import CustomBgInput from './CustomBgInput';
+import ThemeButton from './ThemeButton';
 
 export default function BgSelect({
   bgArray,
@@ -41,18 +42,17 @@ export default function BgSelect({
     setCustomInputPopup(false);
   };
 
-  console.log(theme);
   return (
     <div id={`bg-select-${theme}`}>
       {/* custom background input */}
-      {customInputPopup ? (
+      {customInputPopup && (
         <CustomBgInput
           onSubmit={onSubmit}
           onChange={onChange}
           customInput={customInput}
           submitIconTheme={submitIconTheme}
         />
-      ) : null}
+      )}
 
       {/* backgrounds */}
       {bgArray?.map((bg) => (
@@ -75,6 +75,8 @@ export default function BgSelect({
         setCustomInputPopup={setCustomInputPopup}
         customInputPopup={customInputPopup}
       />
+
+      <ThemeButton theme={theme} setTheme={setTheme} />
     </div>
   );
 }
