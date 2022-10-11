@@ -3,7 +3,6 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import Brightness3Icon from '@mui/icons-material/Brightness3';
 
 function ThemeButton({ customTheme, setCustomTheme }) {
-  console.log(customTheme);
   return (
     <div
       className='icon'
@@ -18,7 +17,7 @@ function ThemeButton({ customTheme, setCustomTheme }) {
           }}
           onClick={() => {
             setCustomTheme('dark');
-            window.localStorage.setItem('customTheme', customTheme);
+            window.localStorage.setItem('customTheme', 'dark');
           }}
         />
       ) : (
@@ -31,7 +30,7 @@ function ThemeButton({ customTheme, setCustomTheme }) {
           }}
           onClick={() => {
             setCustomTheme('light');
-            window.localStorage.setItem('customTheme', customTheme);
+            window.localStorage.setItem('customTheme', 'light');
           }}
         />
       )}
