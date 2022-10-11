@@ -69,6 +69,14 @@
   visibility: visible;
 }
 
+#bg-select-light > span svg,
+#bg-select-light .icon svg,
+#bg-select-dark > span svg,
+#bg-select-dark .icon svg {
+  -webkit-transform: translate(0px, -1.5px);
+          transform: translate(0px, -1.5px);
+}
+
 #bg-select-light span,
 #bg-select-dark span {
   opacity: 0.3;
@@ -78,12 +86,6 @@
 #bg-select-light .active,
 #bg-select-dark .active {
   opacity: 0.8;
-}
-
-#bg-select-light svg,
-#bg-select-dark svg {
-  -webkit-transform: translate(0px, -1.5px);
-          transform: translate(0px, -1.5px);
 }
 
 #bg-select-light .custom-input,
@@ -105,8 +107,6 @@
   letter-spacing: 0.5px;
   width: 100%;
   border: 0;
-  background-color: rgba(255, 255, 255, 0.3);
-  color: white;
   padding: 0.5rem 3rem 0.5rem 1rem;
   border-radius: 2rem;
 }
@@ -118,8 +118,13 @@
 
 #bg-select-light .custom-input svg,
 #bg-select-dark .custom-input svg {
-  -webkit-transform: translate(0, 0);
-          transform: translate(0, 0);
+  -webkit-transform: translate(0, 0.5px);
+          transform: translate(0, 0.5px);
+}
+
+#bg-select-light .custom-input svg:hover,
+#bg-select-dark .custom-input svg:hover {
+  cursor: pointer;
 }
 
 #bg-select-light > span {
@@ -138,6 +143,31 @@
   color: var(--offwhite);
 }
 
+#bg-select-light .custom-input input {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: black;
+}
+
+#bg-select-light .custom-input input::-webkit-input-placeholder {
+  color: black;
+  opacity: 0.6;
+}
+
+#bg-select-light .custom-input input:-ms-input-placeholder {
+  color: black;
+  opacity: 0.6;
+}
+
+#bg-select-light .custom-input input::-ms-input-placeholder {
+  color: black;
+  opacity: 0.6;
+}
+
+#bg-select-light .custom-input input::placeholder {
+  color: black;
+  opacity: 0.6;
+}
+
 #bg-select-dark > span {
   background-color: var(--black);
 }
@@ -152,6 +182,11 @@
 
 #bg-select-dark .icon {
   color: var(--black);
+}
+
+#bg-select-dark .custom-input input {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
 }
 
 .bg-enter {

@@ -1,7 +1,6 @@
 import React from 'react';
-import BrushIcon from '@mui/icons-material/Brush';
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import ArrowCircleRightRoundedIcon from '@mui/icons-material/ArrowCircleRightRounded';
+import Icons from './Icons';
+import CustomBgInput from './CustomBgInput';
 
 export default function BgSelect({
   bgArray,
@@ -9,24 +8,13 @@ export default function BgSelect({
   changeBg,
   setTheme,
   theme,
-  customBg,
   setCustomInputPopup,
   customInputPopup,
   customInput,
   setCustomInput,
 }) {
   // icon styling
-  const iconTheme = theme === 'light' ? '#f2f2f2' : '#000';
-
-  // loop through array & object to get the artist of the current background
-  const bgArtist = bgArray.filter(function (el) {
-    return el.name === currBg;
-  });
-
-  // link to artist social media
-  const toArtist = () => {
-    window.open(bgArtist[0].artist, '_blank', 'noopener, noreferrer');
-  };
+  const submitIconTheme = theme === 'dark' ? '#f2f2f2' : '#000';
 
   // input field on change
   const onChange = (e) => {
@@ -41,7 +29,8 @@ export default function BgSelect({
     // save custom image url in local storage
     window.localStorage.setItem('customBg', customInput);
     // update img property in customBg object to the url
-    customBg.img = customInput;
+    // customBg.img = customInput;
+    bgArray[4].img = customInput;
 
     // bg won't update until refresh
     // force a bg image change on the spot in a way that won't need to wait for state to update
@@ -52,34 +41,20 @@ export default function BgSelect({
     setCustomInputPopup(false);
   };
 
-  // custom bg input element
-  const CustomBgInput = (
-    <form className='custom-input' onSubmit={onSubmit}>
-      <input
-        type='text'
-        placeholder='Paste image URL'
-        onChange={onChange}
-        value={customInput}
-      ></input>
-      <ArrowCircleRightRoundedIcon
-        style={{
-          fill: iconTheme,
-          transition: 'all 0.1s',
-          fontSize: '25px',
-          position: 'absolute',
-          right: '0',
-        }}
-        onClick={onSubmit}
-      />
-    </form>
-  );
-
+  console.log(theme);
   return (
     <div id={`bg-select-${theme}`}>
       {/* custom background input */}
-      {customInputPopup ? CustomBgInput : null}
+      {customInputPopup ? (
+        <CustomBgInput
+          onSubmit={onSubmit}
+          onChange={onChange}
+          customInput={customInput}
+          submitIconTheme={submitIconTheme}
+        />
+      ) : null}
 
-      {/* default backgrounds */}
+      {/* backgrounds */}
       {bgArray?.map((bg) => (
         <span
           key={bg.id}
@@ -91,44 +66,15 @@ export default function BgSelect({
           }}
         ></span>
       ))}
-      {/* custom background */}
-      {customBg && (
-        <span
-          key={customBg.id}
-          className={currBg === customBg.name ? 'active' : ''}
-          data-hover={customBg.name}
-          onClick={() => {
-            changeBg(customBg.name);
-            setTheme(customBg.theme);
-          }}
-        ></span>
-      )}
 
       {/* info icon on presets, edit icon for custom */}
-      <div
-        className='icon'
-        data-hover={currBg === 'custom' ? 'edit' : 'artist'}
-      >
-        {currBg !== 'custom' ? (
-          <InfoOutlinedIcon
-            style={{
-              fill: iconTheme,
-              transition: 'all 0.1s',
-              fontSize: '19px',
-            }}
-            onClick={toArtist}
-          />
-        ) : (
-          <BrushIcon
-            style={{
-              fill: iconTheme,
-              transition: 'all 0.1s',
-              fontSize: '19px',
-            }}
-            onClick={() => setCustomInputPopup(!customInputPopup)}
-          />
-        )}
-      </div>
+      <Icons
+        currBg={currBg}
+        theme={theme}
+        bgArray={bgArray}
+        setCustomInputPopup={setCustomInputPopup}
+        customInputPopup={customInputPopup}
+      />
     </div>
   );
 }

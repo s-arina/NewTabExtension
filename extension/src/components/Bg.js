@@ -11,6 +11,9 @@ import Info from './Info';
 import BgSelect from './BgSelect';
 
 export default function Bg() {
+  // custom bg from local Storage
+  const getCustomBg = window.localStorage.getItem('customBg');
+
   const twt = 'https://twitter.com/';
   const bgArray = [
     {
@@ -41,17 +44,13 @@ export default function Bg() {
       artist: `${twt}1041uuu`,
       theme: 'dark',
     },
+    {
+      id: 5,
+      name: 'custom',
+      img: getCustomBg,
+      theme: 'light',
+    },
   ];
-
-  // custom bg from local Storage
-  const getCustomBg = window.localStorage.getItem('customBg');
-
-  const customBg = {
-    id: 1,
-    name: 'custom',
-    img: getCustomBg,
-    theme: 'light',
-  };
 
   // set random bg on load as initial state (not including custom if there's no image)
   let random;
@@ -113,7 +112,7 @@ export default function Bg() {
       <BgSelect
         bgArray={bgArray}
         currBg={currBg}
-        customBg={customBg}
+        // customBg={customBg}
         customInputPopup={customInputPopup}
         setCustomInputPopup={setCustomInputPopup}
         changeBg={changeBg}
