@@ -1,7 +1,7 @@
 ### Build
 
-- cd /extension
-- npm run move
+- cd /new Tab for add/commit/push
+- cd /extension -> npm run move
 
 ### Adding to Chrome
 
