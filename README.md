@@ -2,10 +2,12 @@
 
 A new tab extension for Chrome made using JS / React / WeatherAPI / MUI.
 
-Preset Backgrounds
+> Preset Backgrounds
+> 
 ![new tab 1 demo](https://github.com/s-arina/NewTabExtension/blob/main/images/newTab1.gif)
 
-Custom Backgrounds
+> Custom Background
+> 
 ![new tab 2 demo](https://github.com/s-arina/NewTabExtension/blob/main/images/newTab2.gif)
 
 ### Features
