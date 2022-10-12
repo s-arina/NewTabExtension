@@ -11,6 +11,10 @@ import Info from './Info';
 import BgSelect from './BgSelect';
 
 export default function Bg() {
+  // custom bg from local Storage
+  const getCustomBg = window.localStorage.getItem('customBg');
+  const getCustomTheme = window.localStorage.getItem('customTheme');
+
   const twt = 'https://twitter.com/';
   const bgArray = [
     {
@@ -41,21 +45,41 @@ export default function Bg() {
       artist: `${twt}1041uuu`,
       theme: 'dark',
     },
+    {
+      id: 5,
+      name: 'custom',
+      img: getCustomBg,
+      theme: getCustomTheme || 'light',
+    },
   ];
 
-  // set random bg on load as initial state
-  const random = ['engawa', 'pond', 'street', 'train'];
+  // set random bg on load as initial state (not including custom if there's no image)
+  let random;
+  if (getCustomBg) {
+    random = ['engawa', 'pond', 'street', 'train', 'custom'];
+  } else {
+    random = ['engawa', 'pond', 'street', 'train'];
+  }
   const randomBg = Math.floor(Math.random() * random.length);
   const [currBg, setCurrBg] = useState(random[randomBg]);
 
-  // set light/dark theme for text
+  // set light/dark theme for background
   const [theme, setTheme] = useState(
     currBg.match(/engawa|street/) ? 'light' : 'dark'
   );
+  // set light/dark theme for custom bg
+  const [customTheme, setCustomTheme] = useState(getCustomTheme || 'light');
 
+  // state for react transition
   const [bgChanged, setBgChanged] = useState(false);
 
+  // custom bg states
+  const [customInputPopup, setCustomInputPopup] = useState(false);
+  const [customInput, setCustomInput] = useState(getCustomBg || '');
+
   const changeBg = (name) => {
+    // hide input whenever a bg is selected
+    setCustomInputPopup(false);
     // stop rerendering if the current bg is clicked again
     if (currBg !== name) {
       setCurrBg(name);
@@ -78,18 +102,29 @@ export default function Bg() {
                 ? street
                 : currBg === 'train'
                 ? train
+                : currBg === 'custom'
+                ? getCustomBg
                 : ''
             })`,
           }}
         ></div>
       </CSSTransition>
-      <Info currBg={currBg} theme={theme} />
+      <Info currBg={currBg} theme={theme} customTheme={customTheme} />
       <BgSelect
         bgArray={bgArray}
         currBg={currBg}
+        customInputPopup={customInputPopup}
+        setCustomInputPopup={setCustomInputPopup}
         changeBg={changeBg}
+        customInput={customInput}
+        setCustomInput={setCustomInput}
         setTheme={setTheme}
         theme={theme}
+        random={random}
+        randomBg={randomBg}
+        setCurrBg={setCurrBg}
+        customTheme={customTheme}
+        setCustomTheme={setCustomTheme}
       />
     </>
   );

@@ -55,6 +55,7 @@ export default function Weather() {
       setWeatherData(data);
     } catch (err) {
       setError('Error: Could not retrieve data. Please try again.');
+      console.log(error);
     }
   };
 
