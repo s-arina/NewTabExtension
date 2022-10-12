@@ -1,8 +1,9 @@
 ## New Tab
 
-A new tab extension for Chrome made using React.
+A new tab extension for Chrome made using JS / React / WeatherAPI / MUI.
 
-![new tab demo](https://github.com/s-arina/NewTabExtension/blob/main/images/newTab.gif)
+![new tab 1 demo](https://github.com/s-arina/NewTabExtension/blob/main/images/newTab1.gif)
+![new tab 2 demo](https://github.com/s-arina/NewTabExtension/blob/main/images/newTab2.gif)
 
 ### Features
 
