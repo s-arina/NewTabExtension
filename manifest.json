@@ -10,6 +10,9 @@
       "activeTab",
       "geolocation"
     ],
+    "host_permissions" : [
+      "https://api.weatherapi.com/v1/"
+    ],
     "icons": {
       "16": "/images/favicon16.png",
       "32": "/images/favicon32.png",
