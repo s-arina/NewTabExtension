@@ -8,8 +8,8 @@ export default function Weather() {
   const getLat = window.localStorage.getItem('lat');
   const getLong = window.localStorage.getItem('long');
 
-  const apiKey = process.env.REACT_APP_WEATHER_API;
-  const url = 'https://api.weatherapi.com/v1/';
+  const apiKey = process.env.REACT_APP_OPENWEATHER;
+  const url = 'https://api.openweathermap.org/data/2.5/';
 
   const [lat, setLat] = useState(getLat ? getLat : '');
   const [long, setLong] = useState(getLong ? getLong : '');
@@ -48,7 +48,7 @@ export default function Weather() {
   const fetchWeatherData = async () => {
     try {
       const { data } = await axios.get(
-        `${url}forecast.json?key=${apiKey}&q=${lat},${long}&aqi=no`
+        `${url}weather?lat=${lat}&lon=${long}&appid=${apiKey}&units=imperial`
       );
       setLoading(false);
       setWeatherData(data);
@@ -66,11 +66,11 @@ export default function Weather() {
     <>
       {loading ? (
         <img src={loader} alt='loading spinner' className='loading' />
-      ) : weatherData.current && weatherData.location ? (
+      ) : weatherData.main ? (
         <h2 onClick={() => toggleUnit()}>
           {unit
-            ? Math.round(weatherData.current.feelslike_f)
-            : Math.round(weatherData.current.feelslike_c)}
+            ? Math.round(weatherData.main.feels_like)
+            : Math.round((5 / 9) * (weatherData.main.feels_like - 32))}
           &deg;{unit ? 'F' : 'C'}
         </h2>
       ) : null}

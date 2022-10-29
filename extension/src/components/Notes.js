@@ -8,7 +8,7 @@ export default function Notes({ theme, customTheme, currBg }) {
   const notesStorage = localStorage.getItem('notes');
   const notepadState = localStorage.getItem('notepad');
 
-  const [notes, setNotes] = useState(notesStorage);
+  const [notes, setNotes] = useState(notesStorage || '');
   // parse the localStorage value, boolean is stored as string
   const [open, setOpen] = useState(JSON.parse(notepadState));
 
