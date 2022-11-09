@@ -80,7 +80,12 @@
 
 #container-light .loading,
 #container-dark .loading {
-  width: 2.5rem;
+  width: 2rem;
+}
+
+#container-light svg:hover,
+#container-dark svg:hover {
+  cursor: pointer;
 }
 
 #container-light .info .date-temp h2 {

@@ -9,13 +9,7 @@ export default function Info({ theme, customTheme, currBg }) {
   const [time, setTime] = useState('');
 
   useEffect(() => {
-    // problem: getDateTime set to run every minute, but that leads to it not rendering on load
-    // need a way to run every minute, but call it immediately at the beginning
-
-    // this solution causes a delay, inaccurate time is shown:
-    // getDateTime();
-    // setInterval(() => getDateTime(), 1000)
-
+    // call immediately at the beginning then run every minute
     setInterval(
       (function getDateTime() {
         const currDate = new Date().toLocaleDateString().replace(/\//gi, '-');
@@ -46,7 +40,7 @@ export default function Info({ theme, customTheme, currBg }) {
           <div className='date-temp'>
             <h2>{date}</h2>
             <h2>{getWeekday(date)}</h2>
-            <Weather />
+            <Weather theme={currBg === 'custom' ? customTheme : theme} />
           </div>
           <h1 className='time'>{time}</h1>
         </div>
