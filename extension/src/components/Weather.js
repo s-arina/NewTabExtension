@@ -15,6 +15,7 @@ export default function Weather() {
   const [long, setLong] = useState(getLong ? getLong : '');
   const [weatherData, setWeatherData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const [unit, setUnit] = useState(true);
 
   useEffect(() => {
@@ -53,6 +54,7 @@ export default function Weather() {
       setLoading(false);
       setWeatherData(data);
     } catch (err) {
+      setError(true);
       console.log('Error: Could not retrieve weather data. Please try again.');
     }
   };
