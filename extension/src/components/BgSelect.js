@@ -32,7 +32,6 @@ export default function BgSelect({
     // save custom image url in local storage
     window.localStorage.setItem('customBg', customInput);
     // update img property in customBg object to the url
-    // customBg.img = customInput;
     bgArray[4].img = customInput;
 
     // bg won't update until refresh
@@ -82,6 +81,7 @@ export default function BgSelect({
         customInputPopup={customInputPopup}
       />
 
+      {/* light/dark toggle for custom bg */}
       {currBg === 'custom' && (
         <ThemeButton
           customTheme={customTheme}
