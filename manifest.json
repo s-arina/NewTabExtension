@@ -1,6 +1,7 @@
 {
-    "short_name": "New Tab",
     "name": "New Tab Extension",
+    "short_name": "New Tab",
+    "author": "https://github.com/s-arina",
     "description": "A new tab page with a notepad and multiple background options.",
     "version": "1.0.0",
     "manifest_version": 3,
@@ -14,10 +15,10 @@
       "https://api.weatherapi.com/v1/"
     ],
     "icons": {
-      "16": "/images/favicon16.png",
-      "32": "/images/favicon32.png",
-      "48": "/images/favicon48.png",
-      "128": "/images/favicon128.png"
+      "16": "/images/16.png",
+      "32": "/images/32.png",
+      "48": "/images/48.png",
+      "128": "/images/128.png"
     },
     "background": {
         "service_worker": "background.js"
