@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../css/Notes.css';
-
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import { MdOutlineKeyboardArrowRight as RightArrow } from 'react-icons/md';
+import { IconContext } from 'react-icons';
 
 export default function Notes({ theme, customTheme, currBg }) {
   // save and retrieve notes from local storage & remember if notepad was open or not on refresh
@@ -33,13 +33,19 @@ export default function Notes({ theme, customTheme, currBg }) {
       <div className='notes' onClick={() => notepad()}>
         <h3>Notes</h3>
         <div className='chevron'>
-          <KeyboardArrowRightIcon
-            style={{
-              transform: chevronRotate,
-              fill: currBg === 'custom' ? chevronCustomTheme : chevronTheme,
-              transition: 'all 0.1s',
+          <IconContext.Provider
+            value={{
+              size: '15px',
             }}
-          />
+          >
+            <RightArrow
+              style={{
+                color: currBg === 'custom' ? chevronCustomTheme : chevronTheme,
+                transition: 'all 0.1s',
+                transform: chevronRotate,
+              }}
+            />
+          </IconContext.Provider>
         </div>
       </div>
       <div className={`notepad-container${!open ? '-hidden' : ''}`}>

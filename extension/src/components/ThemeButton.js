@@ -1,6 +1,6 @@
 import React from 'react';
-import LightModeIcon from '@mui/icons-material/LightMode';
-import Brightness3Icon from '@mui/icons-material/Brightness3';
+import { MdWbSunny as LightMode } from 'react-icons/md';
+import { MdOutlineNightlightRound as DarkMode } from 'react-icons/md';
 
 function ThemeButton({ customTheme, setCustomTheme }) {
   return (
@@ -9,11 +9,11 @@ function ThemeButton({ customTheme, setCustomTheme }) {
       data-hover={customTheme === 'light' ? 'light' : 'dark'}
     >
       {customTheme === 'light' ? (
-        <LightModeIcon
+        <LightMode
           style={{
             fill: '#f2f2f2',
             transition: 'all 0.1s',
-            fontSize: '19px',
+            fontSize: '20px',
           }}
           onClick={() => {
             setCustomTheme('dark');
@@ -21,12 +21,12 @@ function ThemeButton({ customTheme, setCustomTheme }) {
           }}
         />
       ) : (
-        <Brightness3Icon
+        <DarkMode
           style={{
             fill: '#000',
             transition: 'all 0.1s',
-            fontSize: '19px',
-            transform: 'rotate(145deg)',
+            fontSize: '20px',
+            transform: 'rotate(-30deg)',
           }}
           onClick={() => {
             setCustomTheme('light');

@@ -6,13 +6,8 @@
     "version": "1.0.0",
     "manifest_version": 3,
     "permissions": [
-      "storage",
-      "tabs",
       "activeTab",
       "geolocation"
-    ],
-    "host_permissions" : [
-      "https://api.weatherapi.com/v1/"
     ],
     "icons": {
       "16": "/images/16.png",

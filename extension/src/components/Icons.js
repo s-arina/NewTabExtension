@@ -1,6 +1,6 @@
 import React from 'react';
-import BrushIcon from '@mui/icons-material/Brush';
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import { MdBrush as Brush } from 'react-icons/md';
+import { MdInfoOutline as Info } from 'react-icons/md';
 
 export default function Icons({
   currBg,
@@ -27,22 +27,12 @@ export default function Icons({
   return (
     <div className='icon' data-hover={currBg === 'custom' ? 'edit' : 'artist'}>
       {currBg !== 'custom' ? (
-        <InfoOutlinedIcon
-          style={{
-            fill: bgSelectIconTheme,
-            transition: 'all 0.1s',
-            fontSize: '19px',
-          }}
-          onClick={toArtist}
-        />
+        <Info onClick={toArtist} color={bgSelectIconTheme} size='20px' />
       ) : (
-        <BrushIcon
-          style={{
-            fill: editIconTheme,
-            transition: 'all 0.1s',
-            fontSize: '19px',
-          }}
+        <Brush
           onClick={() => setCustomInputPopup(!customInputPopup)}
+          color={editIconTheme}
+          size='20px'
         />
       )}
     </div>

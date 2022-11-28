@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import loader from '../imgs/loader.gif';
-import ReplayRoundedIcon from '@mui/icons-material/ReplayRounded';
+import { MdReplay as Retry } from 'react-icons/md';
+import { IconContext } from 'react-icons';
 
 export default function Weather({ theme }) {
   // cache coordinates to use until location is changed
@@ -87,16 +88,14 @@ export default function Weather({ theme }) {
         </h2>
       ) : (
         error && (
-          <ReplayRoundedIcon
-            style={{
-              fill: RetryIconTheme,
-              fontSize: '19px',
-            }}
-            onClick={() => {
-              getCoords();
-              fetchWeatherData();
-            }}
-          />
+          <IconContext.Provider value={{ color: RetryIconTheme, size: '20px' }}>
+            <Retry
+              onClick={() => {
+                getCoords();
+                fetchWeatherData();
+              }}
+            />
+          </IconContext.Provider>
         )
       )}
     </>

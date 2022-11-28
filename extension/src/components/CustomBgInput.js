@@ -1,5 +1,6 @@
 import React from 'react';
-import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined';
+import { MdOutlineArrowCircleDown as Arrow } from 'react-icons/md';
+import { IconContext } from 'react-icons';
 
 function CustomBgInput({ onSubmit, onChange, customInput, submitIconTheme }) {
   return (
@@ -10,16 +11,22 @@ function CustomBgInput({ onSubmit, onChange, customInput, submitIconTheme }) {
         onChange={onChange}
         value={customInput}
       ></input>
-      <ArrowCircleRightOutlinedIcon
-        style={{
-          fill: submitIconTheme,
-          transition: 'all 0.1s',
-          fontSize: '25px',
-          position: 'absolute',
-          right: '0',
+      <IconContext.Provider
+        value={{
+          color: submitIconTheme,
+          size: '26.5px',
         }}
-        onClick={onSubmit}
-      />
+      >
+        <Arrow
+          style={{
+            size: '26.5px',
+            position: 'absolute',
+            right: '0',
+            transform: 'rotate(270deg)',
+          }}
+          onClick={onSubmit}
+        />
+      </IconContext.Provider>
     </form>
   );
 }
